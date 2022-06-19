@@ -1,0 +1,25 @@
+{
+  "name": "clan-highscores",
+  "version": "1.0.0",
+  "description": "A high scores bot for discord. Features will include automatically updating high scores in a discord channel and users being able to submit using bot commands.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/alwayscompiling/clan-highscores.git"
+  },
+  "author": "alwayscompiling",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/alwayscompiling/clan-highscores/issues"
+  },
+  "homepage": "https://github.com/alwayscompiling/clan-highscores#readme",
+  "dependencies": {
+    "discord.js": "^13.8.0"
+  },
+  "devDependencies": {
+    "eslint": "^8.18.0"
+  }
+}
