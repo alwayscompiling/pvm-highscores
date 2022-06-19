@@ -17,6 +17,9 @@
   },
   "homepage": "https://github.com/alwayscompiling/clan-highscores#readme",
   "dependencies": {
+    "@discordjs/builders": "^0.15.0",
+    "@discordjs/rest": "^0.5.0",
+    "discord-api-types": "^0.34.0",
     "discord.js": "^13.8.0"
   },
   "devDependencies": {
