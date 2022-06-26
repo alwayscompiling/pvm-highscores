@@ -77,10 +77,6 @@
             "hardmode": "true"
         },
         {
-            "boss": "IM Compiling",
-            "hardmode": "true"
-        },
-        {
             "boss": "Kalphite King",
             "hardmode": "false"
         },
@@ -193,7 +189,7 @@
         },
         {
             "category": "Kill Time",
-            "hardmore": true,
+            "hardmode": true,
             "ascending": true
         },
         {

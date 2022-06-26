@@ -4,6 +4,8 @@ Bot command to post the highscores
 
 from nextcord.ext import commands
 import highscores  # pylint: disable=import-error
+from utils import data_storage  # pylint: disable=import-error
+from utils import message_formatter  # pylint: disable=import-error
 
 
 class PostHighscores(commands.Cog, name="Post Highscores"):
@@ -27,13 +29,22 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
                 f"Printing out highscores information in channel {channel_id}")
             channel = self.bot.get_channel(channel_id)
             for boss in highscores.highscores_config["bosses"]:
-                print(boss)
-                boss_name = boss["boss"]
-                highscore_string = f"**{boss_name}**"
-                await channel.send(highscore_string)
+                highscore_string = message_formatter.format_boss_highscore(
+                    boss)
+                message = await channel.send(highscore_string)
+                message_id = message.id
+
+                # check if there is a dict for the boss in the highscores data
+                if not boss["boss"] in highscores.highscores_data:
+                    highscores.highscores_data[boss["boss"]] = {}
+
+                highscores.highscores_data[boss["boss"]
+                                           ]["message_id"] = message_id
         else:
             response = "Highscores channel is not registered. Register with \"?register\" command."
             await ctx.send(response)
+
+        data_storage.save_highscores_data(highscores.highscores_data)
 
 
 # This function will be called when this extension is loaded.
