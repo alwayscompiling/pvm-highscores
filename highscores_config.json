@@ -1,0 +1,206 @@
+{
+    "bosses": [
+        {
+            "boss": "The Ambassador",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Araxxi",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Arch-Glacor",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Astellarn",
+            "hardmode": "true"
+        },
+        {
+            "boss": "The Barrows Brothers",
+            "hardmode": "false"
+        },
+        {
+            "boss": "The Barrows: Rise of the Six",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Beastmaster Durzag",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Black Stone Dragon",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Chaos Elemental",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Commander Zilyana",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Corporeal Beast",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Crassian Leviathan",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Croesus",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Dagannoth Kings",
+            "hardmode": "false"
+        },
+        {
+            "boss": "General Graardor",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Giant Mole",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Gregorovic",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Har-Aken",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Helwyr",
+            "hardmode": "true"
+        },
+        {
+            "boss": "IM Compiling",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Kalphite King",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Kalphite Queen",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Kerapac",
+            "hardmode": "true"
+        },
+        {
+            "boss": "King Black Dragon",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Kree'arra",
+            "hardmode": "true"
+        },
+        {
+            "boss": "K'ril Tsutsaroth",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Legiones",
+            "hardmode": "false"
+        },
+        {
+            "boss": "The Magister",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Masuta the Ascended",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Nex",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Nex - Angel of Death",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Queen Black Dragon",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Raksha",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Rex Matriarchs",
+            "hardmode": "false"
+        },
+        {
+            "boss": "The Sanctum Guardian",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Seiryu the Azure Serpent",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Solak",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Taraket the Necromancer",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Telos",
+            "hardmode": "false"
+        },
+        {
+            "boss": "The Twin Furies",
+            "hardmode": "true"
+        },
+        {
+            "boss": "TzKal-Zuk",
+            "hardmode": "true"
+        },
+        {
+            "boss": "TzTok-Jad",
+            "hardmode": "false"
+        },
+        {
+            "boss": "Verak Lith",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Vindicta & Gorvek",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Vorago",
+            "hardmode": "true"
+        },
+        {
+            "boss": "Yakamaru",
+            "hardmode": "false"
+        }
+    ],
+    "categories": [
+        {
+            "category": "Kill Count",
+            "hardmode": true,
+            "ascending": false
+        },
+        {
+            "category": "Kill Time",
+            "hardmore": true,
+            "ascending": true
+        },
+        {
+            "category": "Spooned Log",
+            "hardmode": false,
+            "ascending": true
+        }
+    ],
+    "highscore_size": 3
+}
