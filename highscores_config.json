@@ -2,183 +2,183 @@
     "bosses": [
         {
             "boss": "The Ambassador",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Araxxi",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Arch-Glacor",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Astellarn",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "The Barrows Brothers",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "The Barrows: Rise of the Six",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Beastmaster Durzag",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Black Stone Dragon",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Chaos Elemental",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Commander Zilyana",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Corporeal Beast",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Crassian Leviathan",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Croesus",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Dagannoth Kings",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "General Graardor",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Giant Mole",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Gregorovic",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Har-Aken",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Helwyr",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Kalphite King",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Kalphite Queen",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Kerapac",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "King Black Dragon",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Kree'arra",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "K'ril Tsutsaroth",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Legiones",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "The Magister",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Masuta the Ascended",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Nex",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Nex - Angel of Death",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Queen Black Dragon",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Raksha",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Rex Matriarchs",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "The Sanctum Guardian",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Seiryu the Azure Serpent",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Solak",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Taraket the Necromancer",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Telos",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "The Twin Furies",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "TzKal-Zuk",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "TzTok-Jad",
-            "hardmode": "false"
+            "hardmode": false
         },
         {
             "boss": "Verak Lith",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Vindicta & Gorvek",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Vorago",
-            "hardmode": "true"
+            "hardmode": true
         },
         {
             "boss": "Yakamaru",
-            "hardmode": "false"
+            "hardmode": false
         }
     ],
     "categories": [
