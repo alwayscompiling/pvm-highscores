@@ -1,3 +1,7 @@
+"""
+Bot command to register the highscores channel
+"""
+
 from nextcord.ext import commands
 import highscores  # pylint: disable=import-error
 
@@ -16,7 +20,7 @@ class RegisterHighscoreChannel(commands.Cog, name="Register HighScore Channel"):
         """
         # log in console that a ping was received
         print(f"Registering {ctx.channel.id}.")
-        print(bot.open_highscores_data())
+        print(highscores.open_highscores_data())
         # respond to the message
         await ctx.send(f"Registered <#{ctx.channel.id}> as channel to post highscores in.")
 
