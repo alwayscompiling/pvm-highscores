@@ -1,11 +1,11 @@
 """
-Contains various function to format the highscore messages
+Contains various functions for sending/editing the highscore messages.
 """
 
 import highscores  # pylint: disable=import-error
 
 
-def format_boss_highscore(boss):
+def format_highscore_message(boss):
     """
     returns a formattedd string for a boss's highscore
     @param the dictionary object for the boss

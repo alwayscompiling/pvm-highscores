@@ -5,7 +5,7 @@ Bot command to post the highscores
 from nextcord.ext import commands
 import highscores  # pylint: disable=import-error
 from utils import data_storage  # pylint: disable=import-error
-from utils import message_formatter  # pylint: disable=import-error
+from utils import highscore_message  # pylint: disable=import-error
 
 
 class PostHighscores(commands.Cog, name="Post Highscores"):
@@ -29,7 +29,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
                 f"Printing out highscores information in channel {channel_id}")
             channel = self.bot.get_channel(channel_id)
             for boss in highscores.highscores_config["bosses"]:
-                highscore_string = message_formatter.format_boss_highscore(
+                highscore_string = highscore_message.format_highscore_message(
                     boss)
                 message = await channel.send(highscore_string)
                 message_id = message.id
