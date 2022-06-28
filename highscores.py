@@ -2,7 +2,6 @@
 main file for pvm-highscores bot
 """
 
-import json
 import logging
 import os
 
@@ -12,12 +11,10 @@ from nextcord.ext import commands
 import config
 from utils import data_storage
 
-logger = logging.getLogger('nextcord')
+logger = logging.getLogger("nextcord")
 logger.setLevel(logging.DEBUG)
-handler = logging.FileHandler(
-    filename='nextcord.log', encoding='utf-8', mode='w')
-handler.setFormatter(logging.Formatter(
-    '%(asctime)s:%(levelname)s:%(name)s: %(message)s'))
+handler = logging.FileHandler(filename="nextcord.log", encoding="utf-8", mode="w")
+handler.setFormatter(logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(message)s"))
 logger.addHandler(handler)
 
 

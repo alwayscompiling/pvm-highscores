@@ -37,7 +37,7 @@ def open_highscores_config():
 def save_highscores_data(data):
     """
     Saves the highscores data dict into a json file.
-    @param: dict of highscores data.
+    @param data: dict of highscores data.
     """
     with open(HIGHSCORES_DATA_FILE, encoding='utf-8', mode='w') as file:
         file.write(json.dumps(data, indent=4))

@@ -16,7 +16,8 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
 
     @commands.command(name="post-scores")
     async def post_highscores(self, ctx: commands.Context):
-        """A command which posts the highscore in the designated channel. Sends warning if no channel has been registered.
+        """
+        A command which posts the highscore in the designated channel. Sends warning if no channel has been registered.
         Usage:
         ```
         ?post-scores
@@ -24,24 +25,20 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         """
         # temporarily sending config data...
         channel_id = highscores.highscores_data["channel_id"]
-        if (channel_id != -1):
-            print(
-                f"Printing out highscores information in channel {channel_id}")
+        if "channel_id" in highscores.highscores_data:
+            channel_id = highscores.highscores_data["channel_id"]
+            print(f"Printing out highscores information in channel {channel_id}")
             channel = self.bot.get_channel(channel_id)
+            if channel is None:
+                response = 'Registered Highscores channel does not exist. Register again with "?register" command.'
+                await ctx.send(response)
+                return
             for boss in highscores.highscores_config["bosses"]:
-                highscore_string = highscore_message.format_highscore_message(
-                    boss)
-                message = await channel.send(highscore_string)
-                message_id = message.id
+                await highscore_message.send_highscore_message(channel, boss)
+                break
 
-                # check if there is a dict for the boss in the highscores data
-                if not boss["boss"] in highscores.highscores_data:
-                    highscores.highscores_data[boss["boss"]] = {}
-
-                highscores.highscores_data[boss["boss"]
-                                           ]["message_id"] = message_id
         else:
-            response = "Highscores channel is not registered. Register with \"?register\" command."
+            response = 'Highscores channel is not registered. Register with "?register" command.'
             await ctx.send(response)
 
         data_storage.save_highscores_data(highscores.highscores_data)
