@@ -17,7 +17,7 @@ def format_highscore_message(boss):
     # Gather all categories and add to string
     for category in highscores.highscores_config["categories"]:
         category_name = category["category"]
-        ret_string += f"{category_name}\t\t"
+        ret_string += f"{category_name}".ljust(30, ' ')
     ret_string += "\n"
 
     highscore_size = highscores.highscores_config["highscore_size"]
@@ -25,7 +25,7 @@ def format_highscore_message(boss):
     # list rankings
     for i in range(highscore_size):
         for category in highscores.highscores_config["categories"]:
-            ret_string += f"{i+1}: (name here)\t\t"
+            ret_string += f"{i+1}: (name here)".ljust(30, ' ')
         ret_string += "\n"
 
     # if boss is hardmode, repeat above for hardmode applicable categories
@@ -33,13 +33,13 @@ def format_highscore_message(boss):
         for category in highscores.highscores_config["categories"]:
             if category["hardmode"]:
                 category_name = category["category"]
-                ret_string += f"{category_name}\t\t"
+                ret_string += f"{category_name}".ljust(30, ' ')
 
         ret_string += "\n"
 
         for i in range(highscore_size):
             for category in highscores.highscores_config["categories"]:
                 if category["hardmode"]:
-                    ret_string += f"{i+1}: (name here)\t\t"
+                    ret_string += f"{i+1}: (name here)".ljust(30, ' ')
             ret_string += "\n"
     return ret_string
