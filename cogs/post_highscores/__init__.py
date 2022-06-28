@@ -25,21 +25,15 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         """
         # temporarily sending config data...
         channel_id = highscores.highscores_data["channel_id"]
-        if "channel_id" in highscores.highscores_data:
-            channel_id = highscores.highscores_data["channel_id"]
-            print(f"Printing out highscores information in channel {channel_id}")
-            channel = self.bot.get_channel(channel_id)
-            if channel is None:
-                response = 'Registered Highscores channel does not exist. Register again with "?register" command.'
-                await ctx.send(response)
-                return
-            for boss in highscores.highscores_config["bosses"]:
-                await highscore_message.send_highscore_message(channel, boss)
-                break
-
-        else:
-            response = 'Highscores channel is not registered. Register with "?register" command.'
+        print(f"Printing out highscores information in channel {channel_id}")
+        channel = self.bot.get_channel(channel_id)
+        if channel is None:
+            response = 'Registered Highscores channel does not exist or was never registered. Register with "?register" command.'
             await ctx.send(response)
+            return
+        for boss in highscores.highscores_config["bosses"]:
+            await highscore_message.send_highscore_message(channel, boss)
+            break
 
         data_storage.save_highscores_data(highscores.highscores_data)
 

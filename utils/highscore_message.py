@@ -3,7 +3,6 @@ Contains various functions for sending/editing the highscore messages.
 """
 
 import nextcord
-from nextcord.ext import commands
 import highscores  # pylint: disable=import-error
 
 
@@ -55,28 +54,12 @@ async def send_highscore_message(channel, boss):
     """
     highscore_string = format_highscore_message(boss)
 
-    if (boss["boss"] in highscores.highscores_data) and (
-        "message_id" in highscores.highscores_data[boss["boss"]]
-    ):
-        message_id = highscores.highscores_data[boss["boss"]]["message_id"]
-        try:
-            message = await channel.fetch_message(message_id)
-            await message.edit(highscore_string)
-        except nextcord.NotFound:
-            # message doesn't exist.
-            message = await channel.send(highscore_string)
-            message_id = message.id
-            # check if there is a dict for the boss in the highscores data
-            if not boss["boss"] in highscores.highscores_data:
-                highscores.highscores_data[boss["boss"]] = {}
-
-            highscores.highscores_data[boss["boss"]]["message_id"] = message_id
-    else:
-        # make a new message
+    message_id = highscores.highscores_data[boss["boss"]]["message_id"]
+    try:
+        message = await channel.fetch_message(message_id)
+        await message.edit(highscore_string)
+    except nextcord.NotFound:
+        # message doesn't exist.
         message = await channel.send(highscore_string)
         message_id = message.id
-        # check if there is a dict for the boss in the highscores data
-        if not boss["boss"] in highscores.highscores_data:
-            highscores.highscores_data[boss["boss"]] = {}
-
         highscores.highscores_data[boss["boss"]]["message_id"] = message_id
