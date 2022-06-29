@@ -21,20 +21,13 @@ def open_highscores_data():
         # create the json object
         data = {"channel_id": -1}
         config = open_highscores_config()
-        size = config["highscore_size"]
         for boss in config["bosses"]:
-            data[boss["boss"]] = {"message_id": -1}
+            data[boss["boss"]] = {"message_id": 0}
             for category in config["categories"]:
                 rank_list = []
-                for i in range(size):  # pylint: disable=unused-variable
-                    rank = {"player": "", "score": -1}
-                    rank_list.append(rank)
                 data[boss["boss"]][category["category"]] = rank_list
                 if boss["hardmode"] and category["hardmode"]:
                     rank_list = []
-                    for i in range(size):  # pylint: disable=unused-variable
-                        rank = {"player": "", "score": -1}
-                        rank_list.append(rank)
                     data[boss["boss"]][category["category"] + "_hardmode"] = rank_list
     return data
 

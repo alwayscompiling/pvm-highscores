@@ -8,12 +8,13 @@ import highscores  # pylint: disable=import-error
 
 def format_highscore_message(boss):
     """
-    returns a formattedd string for a boss's highscore
+    returns a formatted string for a boss's highscore
     @param boss: the dictionary object for the boss
     @return the formatted string
     """
     boss_name = boss["boss"]
     ret_string = f"**{boss_name}**\n"
+    boss_data = highscores.highscores_data[boss_name]
 
     # Gather all categories and add to string
     for category in highscores.highscores_config["categories"]:
@@ -26,7 +27,16 @@ def format_highscore_message(boss):
     # list rankings
     for i in range(highscore_size):
         for category in highscores.highscores_config["categories"]:
-            ret_string += f"{i+1}: submit your score".ljust(30, " ")
+            boss_category_scores = boss_data[category["category"]]
+            if len(boss_category_scores) > i:
+                score = boss_category_scores[i]
+                # this is the dumbest solution to a problem iv seen in a while...
+                # I just needed the key and this is the best way to get it without
+                # getting a list of 1 key and parsing that string.
+                for key, value in score.items():
+                    ret_string += f"{i+1}: {key} - {value}".ljust(30, " ")
+            else:
+                ret_string += f"{i+1}: submit your score".ljust(30, " ")
         ret_string += "\n"
 
     # if boss is hardmode, repeat above for hardmode applicable categories
@@ -34,14 +44,21 @@ def format_highscore_message(boss):
         for category in highscores.highscores_config["categories"]:
             if category["hardmode"]:
                 category_name = category["category"]
-                ret_string += f"{category_name}".ljust(30, " ")
+                ret_string += f"Hardmode {category_name}".ljust(30, " ")
 
         ret_string += "\n"
 
         for i in range(highscore_size):
             for category in highscores.highscores_config["categories"]:
                 if category["hardmode"]:
-                    ret_string += f"{i+1}: (name here)".ljust(30, " ")
+                    hardmode_category = category["category"]
+                    boss_category_scores = boss_data[f"{hardmode_category}_hardmode"]
+                    if len(boss_category_scores) > i:
+                        score = boss_category_scores[i]
+                        for key, value in score.items():
+                            ret_string += f"{i+1}: {key} - {value}".ljust(30, " ")
+                    else:
+                        ret_string += f"{i+1}: submit your score".ljust(30, " ")
             ret_string += "\n"
     return ret_string
 

@@ -17,7 +17,8 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
     @commands.command(name="post-scores")
     async def post_highscores(self, ctx: commands.Context):
         """
-        A command which posts the highscore in the designated channel. Sends warning if no channel has been registered.
+        A command which posts the highscore in the designated channel. Sends warning if no channel
+        has been registered.
         Usage:
         ```
         ?post-scores
@@ -28,11 +29,13 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         print(f"Printing out highscores information in channel {channel_id}")
         channel = self.bot.get_channel(channel_id)
         if channel is None:
-            response = 'Registered Highscores channel does not exist or was never registered. Register with "?register" command.'
+            response = 'Registered Highscores channel does not exist or was never registered. \
+                Register with "?register" command.'
             await ctx.send(response)
             return
         for boss in highscores.highscores_config["bosses"]:
             await highscore_message.send_highscore_message(channel, boss)
+            break
 
         data_storage.save_highscores_data(highscores.highscores_data)
 
