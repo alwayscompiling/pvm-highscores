@@ -36,7 +36,6 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
             return
         for boss in highscores_config["bosses"]:
             await highscore_message.send_highscore_message(channel, boss)
-            break
 
         data_storage.save_highscores_data(highscores_data)
 
