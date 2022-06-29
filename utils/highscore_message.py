@@ -3,7 +3,8 @@ Contains various functions for sending/editing the highscore messages.
 """
 
 import nextcord
-import highscores  # pylint: disable=import-error
+from highscores import highscores_config  # pylint: disable=import-error
+from highscores import highscores_data  # pylint: disable=import-error
 
 
 def format_highscore_message(boss):
@@ -14,19 +15,19 @@ def format_highscore_message(boss):
     """
     boss_name = boss["boss"]
     ret_string = f"**{boss_name}**\n"
-    boss_data = highscores.highscores_data[boss_name]
+    boss_data = highscores_data[boss_name]
 
     # Gather all categories and add to string
-    for category in highscores.highscores_config["categories"]:
+    for category in highscores_config["categories"]:
         category_name = category["category"]
         ret_string += f"{category_name}".ljust(30, " ")
     ret_string += "\n"
 
-    highscore_size = highscores.highscores_config["highscore_size"]
+    highscore_size = highscores_config["highscore_size"]
 
     # list rankings
     for i in range(highscore_size):
-        for category in highscores.highscores_config["categories"]:
+        for category in highscores_config["categories"]:
             boss_category_scores = boss_data[category["category"]]
             if len(boss_category_scores) > i:
                 score = boss_category_scores[i]
@@ -41,7 +42,7 @@ def format_highscore_message(boss):
 
     # if boss is hardmode, repeat above for hardmode applicable categories
     if boss["hardmode"]:
-        for category in highscores.highscores_config["categories"]:
+        for category in highscores_config["categories"]:
             if category["hardmode"]:
                 category_name = category["category"]
                 ret_string += f"Hardmode {category_name}".ljust(30, " ")
@@ -49,7 +50,7 @@ def format_highscore_message(boss):
         ret_string += "\n"
 
         for i in range(highscore_size):
-            for category in highscores.highscores_config["categories"]:
+            for category in highscores_config["categories"]:
                 if category["hardmode"]:
                     hardmode_category = category["category"]
                     boss_category_scores = boss_data[f"{hardmode_category}_hardmode"]
@@ -71,7 +72,7 @@ async def send_highscore_message(channel, boss):
     """
     highscore_string = format_highscore_message(boss)
 
-    message_id = highscores.highscores_data[boss["boss"]]["message_id"]
+    message_id = highscores_data[boss["boss"]]["message_id"]
     try:
         message = await channel.fetch_message(message_id)
         await message.edit(content=highscore_string)
@@ -79,4 +80,4 @@ async def send_highscore_message(channel, boss):
         # message doesn't exist.
         message = await channel.send(highscore_string)
         message_id = message.id
-        highscores.highscores_data[boss["boss"]]["message_id"] = message_id
+        highscores_data[boss["boss"]]["message_id"] = message_id

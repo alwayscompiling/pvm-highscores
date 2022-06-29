@@ -3,7 +3,7 @@ Bot command to register the highscores channel
 """
 
 from nextcord.ext import commands
-import highscores  # pylint: disable=import-error
+from highscores import highscores_data  # pylint: disable=import-error
 from utils import data_storage  # pylint: disable=import-error
 
 
@@ -24,8 +24,8 @@ class RegisterHighscoreChannel(commands.Cog, name="Register HighScore Channel"):
         print(f"Registering {ctx.channel.id}.")
         # respond to the message
         await ctx.send(f"Registered <#{ctx.channel.id}> as channel to post highscores in.")
-        highscores.highscores_data["channel_id"] = ctx.channel.id
-        data_storage.save_highscores_data(highscores.highscores_data)
+        highscores_data["channel_id"] = ctx.channel.id
+        data_storage.save_highscores_data(highscores_data)
 
 
 # This function will be called when this extension is loaded.
