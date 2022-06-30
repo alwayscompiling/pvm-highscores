@@ -15,7 +15,7 @@ class RegisterHighscoreChannel(commands.Cog, name="Score"):
         self.bot = bot
 
     @commands.command(name="score")
-    async def score(self, ctx: commands.Context, boss: str, category: str, score):
+    async def score(self, ctx: commands.Context, boss_name: str, category: str, score):
         """A command which calls a function to submit the score to highscores. Gathers required
         information from command and passes on.
         Usage:
@@ -23,7 +23,9 @@ class RegisterHighscoreChannel(commands.Cog, name="Score"):
         ?score "Boss Name" "Category" "score"
         ```
         """
-        highscore_manage.submit_score_int(boss, category, ctx.author.display_name, score)
+        await highscore_manage.submit_score_int(
+            self, ctx, boss_name, category, ctx.author.display_name, score
+        )
 
 
 # This function will be called when this extension is loaded.

@@ -25,7 +25,6 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         ?post-scores
         ```
         """
-        # temporarily sending config data...
         channel_id = highscores_data["channel_id"]
         print(f"Printing out highscores information in channel {channel_id}")
         channel = self.bot.get_channel(channel_id)
@@ -35,7 +34,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
             await ctx.send(response)
             return
         for boss in highscores_config["bosses"]:
-            await highscore_message.send_highscore_message(channel, boss)
+            await highscore_message.send_highscore_message(channel, boss["boss"])
 
         data_storage.save_highscores_data(highscores_data)
 

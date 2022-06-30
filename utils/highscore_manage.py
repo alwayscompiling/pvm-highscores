@@ -7,7 +7,9 @@ from highscores import highscores_data  # pylint: disable=import-error
 from utils import data_storage  # pylint: disable=import-error
 
 
-def submit_score_int(boss: str, category: str, user: str, score: int):
+async def submit_score_int(
+    self, ctx: commands.Context, boss_name: str, category: str, user: str, score: int
+):
     """
     Adds a score to the high scores and sorts. Removes a score if larger than size limit.
     @param boss: the boss to add score to

@@ -7,13 +7,12 @@ from highscores import highscores_config  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
 
 
-def format_highscore_message(boss):
+def format_highscore_message(boss_name: str):
     """
     returns a formatted string for a boss's highscore
     @param boss: the dictionary object for the boss
     @return the formatted string
     """
-    boss_name = boss["boss"]
     ret_string = f"**{boss_name}**\n"
     boss_data = highscores_data[boss_name]
 
@@ -37,15 +36,15 @@ def format_highscore_message(boss):
     return ret_string
 
 
-async def send_highscore_message(channel, boss):
+async def send_highscore_message(channel, boss_name: str):
     """
     Function takes care of checking if a message exists for a boss, then creating and sending/editing the message
     @param channel: the channel to send the message in/search for message id
     @param boss: the boss to send the message about
     """
-    highscore_string = format_highscore_message(boss)
+    highscore_string = format_highscore_message(boss_name)
 
-    message_id = highscores_data[boss["boss"]]["message_id"]
+    message_id = highscores_data[boss_name]["message_id"]
     try:
         message = await channel.fetch_message(message_id)
         await message.edit(content=highscore_string)
@@ -53,4 +52,4 @@ async def send_highscore_message(channel, boss):
         # message doesn't exist.
         message = await channel.send(highscore_string)
         message_id = message.id
-        highscores_data[boss["boss"]]["message_id"] = message_id
+        highscores_data[boss_name]["message_id"] = message_id
