@@ -23,12 +23,14 @@ def open_highscores_data():
         config = open_highscores_config()
         for boss in config["bosses"]:
             data[boss["boss"]] = {"message_id": 0}
-            for category in config["categories"]:
+            boss_categories = {}
+            for key, value in config["categories"].items():
                 rank_list = []
-                data[boss["boss"]][category["category"]] = rank_list
-                if boss["hardmode"] and category["hardmode"]:
+                boss_categories[key] = rank_list
+                if boss["hardmode"] and value["hardmode"]:
                     rank_list = []
-                    data[boss["boss"]][category["category"] + "_hardmode"] = rank_list
+                    boss_categories["Hardmode " + key] = rank_list
+            data[boss["boss"]]["categories"] = boss_categories
     return data
 
 
