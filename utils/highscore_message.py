@@ -28,7 +28,7 @@ def format_highscore_message(boss_name: str):
         for key, value in boss_data["categories"].items():
             if len(value) > i:
                 score = value[i]
-                ret_string += f"{i+1}: {key} - {score}".ljust(30, " ")
+                ret_string += f"{i+1}: {score[0]} - {score[1]}".ljust(30, " ")
             else:
                 ret_string += f"{i+1}: submit your score".ljust(30, " ")
         ret_string += "\n"
