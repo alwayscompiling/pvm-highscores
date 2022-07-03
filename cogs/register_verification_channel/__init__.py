@@ -4,7 +4,7 @@ Bot command to register the verification channel
 
 from nextcord.ext import commands
 from highscores import highscores_data  # pylint: disable=import-error
-from utils import data_storage  # pylint: disable=import-error
+from utils.utils import save_highscores_data  # pylint: disable=import-error
 
 
 class RegisterVerificationChannel(commands.Cog, name="Register Verify Channel"):
@@ -25,7 +25,7 @@ class RegisterVerificationChannel(commands.Cog, name="Register Verify Channel"):
         # respond to the message
         await ctx.send(f"Registered <#{ctx.channel.id}> as channel to post verifications in.")
         highscores_data["verification_channel_id"] = ctx.channel.id
-        data_storage.save_highscores_data(highscores_data)
+        save_highscores_data(highscores_data)
 
 
 # This function will be called when this extension is loaded.
