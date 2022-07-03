@@ -184,15 +184,18 @@
     "categories": {
         "Kill Count": {
             "hardmode": true,
-            "ascending": false
+            "ascending": false,
+            "is_time_record": false
         },
         "Kill Time": {
             "hardmode": true,
-            "ascending": true
+            "ascending": true,
+            "is_time_record": true
         },
         "Spooned Log": {
             "hardmode": false,
-            "ascending": true
+            "ascending": true,
+            "is_time_record": false
         }
     },
     "highscore_size": 3
