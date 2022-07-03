@@ -6,12 +6,7 @@ import nextcord
 from nextcord.ext import commands
 from highscores import highscores_config  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
-from utils.data_storage import save_highscores_data
-
-
-def create_verification_id(user: str, boss_name: str, category: str, score: str) -> str:
-    """Returns a verification id string for buttons."""
-    return f"{user}:{boss_name}:{category}:{score}"
+from utilities.data_storage import save_highscores_data  # pylint: disable=import-error
 
 
 def format_highscore_message(boss_name: str):

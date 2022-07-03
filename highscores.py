@@ -9,8 +9,8 @@ import nextcord
 from nextcord.ext import commands
 
 import config
-from utils.data_storage import open_highscores_config
-from utils.data_storage import open_highscores_data
+from utilities.data_storage import open_highscores_config
+from utilities.data_storage import open_highscores_data
 
 logger = logging.getLogger("nextcord")
 logger.setLevel(logging.DEBUG)

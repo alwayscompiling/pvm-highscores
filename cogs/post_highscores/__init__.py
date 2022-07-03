@@ -5,8 +5,8 @@ Bot command to post the highscores
 from nextcord.ext import commands
 from highscores import highscores_config  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
-from utils.data_storage import save_highscores_data  # pylint: disable=import-error
-from utils.utils import send_highscore_message  # pylint: disable=import-error
+from utilities.data_storage import save_highscores_data  # pylint: disable=import-error
+from utilities.utils import send_highscore_message  # pylint: disable=import-error
 
 
 class PostHighscores(commands.Cog, name="Post Highscores"):
