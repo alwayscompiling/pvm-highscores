@@ -2,15 +2,16 @@
 Contains various utlity functions for highscores bot
 """
 
-import json
-import os
 import nextcord
 from nextcord.ext import commands
 from highscores import highscores_config  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
+from utils.data_storage import save_highscores_data
 
-HIGHSCORES_CONFIG_FILE = "highscores_config.json"
-HIGHSCORES_DATA_FILE = "highscores_data.json"
+
+def create_verification_id(user: str, boss_name: str, category: str, score: str) -> str:
+    """Returns a verification id string for buttons."""
+    return f"{user}:{boss_name}:{category}:{score}"
 
 
 def format_highscore_message(boss_name: str):
@@ -40,50 +41,6 @@ def format_highscore_message(boss_name: str):
         ret_string += "\n"
 
     return ret_string + "```"
-
-
-def open_highscores_config():
-    """
-    Opens the highscores config file and returns.
-    @return: dict of highscores config.
-    """
-    # Load bot config
-    with open(HIGHSCORES_CONFIG_FILE, encoding="utf-8", mode="r") as file:
-        return json.load(file)
-
-
-def open_highscores_data():
-    """
-    Opens a highscores_data.json file if one exists, otherwise creates a skeleton of the data.
-    @return: dict of highscores data.
-    """
-    if os.path.exists(HIGHSCORES_DATA_FILE):
-        with open(HIGHSCORES_DATA_FILE, encoding="utf-8", mode="r") as file:
-            data = json.load(file)
-    else:
-        # create the json object
-        data = {"highscore_channel_id": -1, "verification_channel_id": -1}
-        config = open_highscores_config()
-        for boss in config["bosses"]:
-            data[boss["boss"]] = {"message_id": 0}
-            boss_categories = {}
-            for key, value in config["categories"].items():
-                rank_list = []
-                boss_categories[key] = rank_list
-                if boss["hardmode"] and value["hardmode"]:
-                    rank_list = []
-                    boss_categories["Hardmode " + key] = rank_list
-            data[boss["boss"]]["categories"] = boss_categories
-    return data
-
-
-def save_highscores_data(data):
-    """
-    Saves the highscores data dict into a json file.
-    @param data: dict of highscores data.
-    """
-    with open(HIGHSCORES_DATA_FILE, encoding="utf-8", mode="w") as file:
-        file.write(json.dumps(data, indent=4))
 
 
 async def send_highscore_message(channel, boss_name: str):
