@@ -58,7 +58,9 @@ async def send_highscore_message(channel, boss_name: str):
         highscores_data[boss_name]["message_id"] = message_id
 
 
-async def submit_score(self, ctx: commands.Context, boss_name: str, category: str, score: str):
+async def submit_score(
+    interaction: nextcord.Interaction, user: str, boss_name: str, category: str, score: str
+):
     """
     Adds a score to the high scores and sorts. Removes a score if larger than size limit.
     @param boss: the boss to add score to
@@ -75,11 +77,11 @@ async def submit_score(self, ctx: commands.Context, boss_name: str, category: st
         minutes = score_list[0]
         seconds = score_list[1]
         score_seconds = int(minutes) * 60 + int(seconds)
-        score_tuple = (ctx.author.display_name, score, score_seconds)
+        score_tuple = (user, score, score_seconds)
         sort_index = 2
 
     else:
-        score_tuple = (ctx.author.display_name, int(score))
+        score_tuple = (user, int(score))
         sort_index = 1
 
     scores = highscores_data[boss_name]["categories"][category]
@@ -97,12 +99,12 @@ async def submit_score(self, ctx: commands.Context, boss_name: str, category: st
     # edit message
     highscore_channel_id = highscores_data["highscore_channel_id"]
     print(f"Editting message {highscore_channel_id}")
-    channel = self.bot.get_channel(highscore_channel_id)
-    if channel is None:
-        response = 'Registered Highscores channel does not exist or was never registered. \
+    channel = interaction.guild.get_channel(highscore_channel_id)
+
+    error_response = 'Registered Highscores channel does not exist or was never registered. \
             Register with "?register" command.'
-        await ctx.send(response)
-        return
+    assert channel is not None, await interaction.send(error_response)
+
     await send_highscore_message(channel, boss_name)
 
     # save data
