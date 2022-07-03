@@ -7,7 +7,7 @@ from highscores import highscores_data  # pylint: disable=import-error
 from utils import data_storage  # pylint: disable=import-error
 
 
-class RegisterVerificationChannel(commands.Cog, name="Register HighScore Channel"):
+class RegisterVerificationChannel(commands.Cog, name="Register Verify Channel"):
     """Registers Verification channel"""
 
     def __init__(self, bot: commands.Bot):
