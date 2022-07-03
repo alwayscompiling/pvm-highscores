@@ -26,18 +26,16 @@ class Score(commands.Cog, name="Score"):
         verification_channel_id = highscores_data["verification_channel_id"]
         channel = self.bot.get_channel(verification_channel_id)
 
-        if channel is None:
-            response = "Registered Verification channel does not exist or was never registered. \
+        error_response = "Registered Verification channel does not exist or was never registered. \
                 Contact server admins."
-            await ctx.send(response)
-            return
-        else:
-            verification_string = f"{ctx.author.display_name}:{boss_name}:{category}:{score}"
+        assert channel is not None, await ctx.send(error_response)
 
-            await channel.send(
-                content=verification_string,
-                files=[await attch.to_file() for attch in ctx.message.attachments],
-            )
+        verification_string = f"{ctx.author.display_name}:{boss_name}:{category}:{score}"
+
+        await channel.send(
+            content=verification_string,
+            files=[await attch.to_file() for attch in ctx.message.attachments],
+        )
 
         # await highscore_manage.submit_score(self, ctx, boss_name, category, score)
 

@@ -28,11 +28,11 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         highscore_channel_id = highscores_data["highscore_channel_id"]
         print(f"Printing out highscores information in channel {highscore_channel_id}")
         channel = self.bot.get_channel(highscore_channel_id)
-        if channel is None:
-            response = 'Registered Highscores channel does not exist or was never registered. \
+
+        error_response = 'Registered Highscores channel does not exist or was never registered. \
                 Register with "?register" command.'
-            await ctx.send(response)
-            return
+        assert channel is not None, await ctx.send(error_response)
+
         for boss in highscores_config["bosses"]:
             await highscore_message.send_highscore_message(channel, boss["boss"])
 
