@@ -9,15 +9,15 @@ from utils import highscore_manage  # pylint: disable=import-error
 
 
 class RegisterHighscoreChannel(commands.Cog, name="Score"):
-    """Actions of bot command"""
+    """Submits a score."""
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
     @commands.command(name="score")
     async def score(self, ctx: commands.Context, boss_name: str, category: str, score: str):
-        """A command which calls a function to submit the score to highscores. Gathers required
-        information from command and passes on.
+        """A command which calls a function to submit the score to highscores.
+        Gathers required information from command and passes on.
         Usage:
         ```
         ?score "Boss Name" "Category" "score"

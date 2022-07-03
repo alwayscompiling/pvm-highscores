@@ -10,7 +10,7 @@ from utils import highscore_message  # pylint: disable=import-error
 
 
 class PostHighscores(commands.Cog, name="Post Highscores"):
-    """Actions of bot command"""
+    """Posts Highscores."""
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
@@ -18,8 +18,8 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
     @commands.command(name="post-scores")
     async def post_highscores(self, ctx: commands.Context):
         """
-        A command which posts the highscore in the designated channel. Sends warning if no channel
-        has been registered.
+        A command which posts the highscore in the designated channel.
+        Sends warning if no channel has been registered.
         Usage:
         ```
         ?post-scores
