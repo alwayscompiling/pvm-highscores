@@ -3,7 +3,6 @@ Contains various utlity functions for highscores bot
 """
 
 import nextcord
-from nextcord.ext import commands
 from highscores import highscores_config  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
 from utilities.data_storage import save_highscores_data  # pylint: disable=import-error
@@ -73,9 +72,8 @@ async def submit_score(
     # create score tuple for either time or int
     # define sort index
     if highscores_config["categories"][category]["is_time_record"]:
-        score_list = score.split(":")
-        minutes = score_list[0]
-        seconds = score_list[1]
+        minutes = score.split(":")[0]
+        seconds = score.split(":")[1]
         score_seconds = int(minutes) * 60 + int(seconds)
         score_tuple = (user, score, score_seconds)
         sort_index = 2
@@ -88,8 +86,10 @@ async def submit_score(
     scores.append(score_tuple)
 
     # sort scores.
-    ascending = highscores_config["categories"][category]["ascending"]
-    scores.sort(key=lambda x: x[sort_index], reverse=not ascending)
+    scores.sort(
+        key=lambda x: x[sort_index],
+        reverse=not highscores_config["categories"][category]["ascending"],
+    )
 
     # enforce highscore size
     while len(scores) > highscores_config["highscore_size"]:
