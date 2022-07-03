@@ -9,7 +9,8 @@ import nextcord
 from nextcord.ext import commands
 
 import config
-from utils import data_storage
+from utils.utils import open_highscores_config
+from utils.utils import open_highscores_data
 
 logger = logging.getLogger("nextcord")
 logger.setLevel(logging.DEBUG)
@@ -18,8 +19,8 @@ handler.setFormatter(logging.Formatter("%(asctime)s:%(levelname)s:%(name)s: %(me
 logger.addHandler(handler)
 
 
-highscores_config = data_storage.open_highscores_config()
-highscores_data = data_storage.open_highscores_data()
+highscores_config = open_highscores_config()
+highscores_data = open_highscores_data()
 
 
 def main():
