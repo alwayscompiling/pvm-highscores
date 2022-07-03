@@ -1,7 +1,11 @@
-import config
+"""
+Help command. Copied from discord-bot-template.
+"""
+
 import nextcord
 from nextcord.embeds import EmptyEmbed
 from nextcord.ext import commands
+import config  # pylint: disable=import-error
 
 
 class NewHelpCommand(commands.MinimalHelpCommand):
@@ -28,7 +32,7 @@ class NewHelpCommand(commands.MinimalHelpCommand):
         if description:
             embed.description = description
 
-        for cog, commands in mapping.items():
+        for cog, commands in mapping.items():  # pylint: disable=redefined-outer-name
             name = "No Category" if cog is None else cog.qualified_name
             filtered = await self.filter_commands(commands, sort=True)
             if filtered:

@@ -15,7 +15,7 @@ class RegisterHighscoreChannel(commands.Cog, name="Register HighScore Channel"):
 
     @commands.command(name="register")
     async def register_highscores(self, ctx: commands.Context):
-        """A command which registers the channel command is sent in as channel to post highscores in.
+        """A command which registers current channel as channel to post highscores in.
         Usage:
         ```
         ?register (in channel to post highscores in)
