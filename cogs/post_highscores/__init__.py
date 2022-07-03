@@ -25,9 +25,9 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         ?post-scores
         ```
         """
-        channel_id = highscores_data["channel_id"]
-        print(f"Printing out highscores information in channel {channel_id}")
-        channel = self.bot.get_channel(channel_id)
+        highscore_channel_id = highscores_data["highscore_channel_id"]
+        print(f"Printing out highscores information in channel {highscore_channel_id}")
+        channel = self.bot.get_channel(highscore_channel_id)
         if channel is None:
             response = 'Registered Highscores channel does not exist or was never registered. \
                 Register with "?register" command.'

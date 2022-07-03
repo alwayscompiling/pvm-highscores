@@ -19,7 +19,7 @@ def open_highscores_data():
             data = json.load(file)
     else:
         # create the json object
-        data = {"channel_id": -1}
+        data = {"highscore_channel_id": -1, "verification_channel_id": -1}
         config = open_highscores_config()
         for boss in config["bosses"]:
             data[boss["boss"]] = {"message_id": 0}

@@ -46,9 +46,9 @@ async def submit_score(self, ctx: commands.Context, boss_name: str, category: st
     highscores_data[boss_name]["categories"][category] = scores
 
     # edit message
-    channel_id = highscores_data["channel_id"]
-    print(f"Editting message {channel_id}")
-    channel = self.bot.get_channel(channel_id)
+    highscore_channel_id = highscores_data["highscore_channel_id"]
+    print(f"Editting message {highscore_channel_id}")
+    channel = self.bot.get_channel(highscore_channel_id)
     if channel is None:
         response = 'Registered Highscores channel does not exist or was never registered. \
             Register with "?register" command.'

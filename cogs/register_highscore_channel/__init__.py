@@ -13,18 +13,18 @@ class RegisterHighscoreChannel(commands.Cog, name="Register HighScore Channel"):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.command(name="register")
+    @commands.command(name="register-highscore")
     async def register_highscores(self, ctx: commands.Context):
         """A command which registers current channel as channel to post highscores in.
         Usage:
         ```
-        ?register (in channel to post highscores in)
+        ?register-highscore (in channel to post highscores in)
         ```
         """
-        print(f"Registering {ctx.channel.id}.")
+        print(f"Registering {ctx.channel.id} for highscores.")
         # respond to the message
         await ctx.send(f"Registered <#{ctx.channel.id}> as channel to post highscores in.")
-        highscores_data["channel_id"] = ctx.channel.id
+        highscores_data["highscore_channel_id"] = ctx.channel.id
         data_storage.save_highscores_data(highscores_data)
 
 
