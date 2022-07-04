@@ -51,16 +51,15 @@ async def send_highscore_message(channel, boss_name: str):
     message_id = highscores_data[boss_name]["message_id"]
     try:
         message = await channel.fetch_message(message_id)
-        await message.edit(content=highscore_string)
+        await message.edit(content=highscore_string, view=SubmissionView())
     except nextcord.NotFound:
         # message doesn't exist.
-        message = await channel.send(highscore_string)
+        message = await channel.send(highscore_string, view=SubmissionView())
         message_id = message.id
         highscores_data[boss_name]["message_id"] = message_id
-
-    # save message -> boss_name in message_map
-    highscores_message_map[message_id] = boss_name
-    save_message_map(highscores_message_map)
+        # save message -> boss_name in message_map
+        highscores_message_map[str(message_id)] = boss_name
+        save_message_map(highscores_message_map)
 
 
 async def submit_score(
