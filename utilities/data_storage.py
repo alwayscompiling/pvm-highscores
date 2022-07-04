@@ -5,6 +5,7 @@ import json
 
 HIGHSCORES_CONFIG_FILE = "highscores_config.json"
 HIGHSCORES_DATA_FILE = "highscores_data.json"
+HIGHSCORES_MESSAGE_MAP_FILE = "highscores_message_map.json"
 
 
 def open_highscores_config():
@@ -42,6 +43,20 @@ def open_highscores_data():
     return data
 
 
+def open_message_map():
+    """
+    Opens a highscore_message_map.json file if one exists. Otherwise returns empty dict.
+    @return: dict message_map of message to boss.
+    """
+    if os.path.exists(HIGHSCORES_MESSAGE_MAP_FILE):
+        with open(HIGHSCORES_MESSAGE_MAP_FILE, encoding="utf-8", mode="r") as file:
+            message_map = json.load(file)
+    else:
+        # create the json object
+        message_map = {}
+    return message_map
+
+
 def save_highscores_data(data):
     """
     Saves the highscores data dict into a json file.
@@ -49,3 +64,12 @@ def save_highscores_data(data):
     """
     with open(HIGHSCORES_DATA_FILE, encoding="utf-8", mode="w") as file:
         file.write(json.dumps(data, indent=4))
+
+
+def save_message_map(message_map):
+    """
+    Saves the highscores message mao data dict into a json file.
+    @param map: dict map of message to boss.
+    """
+    with open(HIGHSCORES_MESSAGE_MAP_FILE, encoding="utf-8", mode="w") as file:
+        file.write(json.dumps(message_map, indent=4))

@@ -11,6 +11,7 @@ from nextcord.ext import commands
 import config
 from utilities.data_storage import open_highscores_config
 from utilities.data_storage import open_highscores_data
+from utilities.data_storage import open_message_map
 
 logger = logging.getLogger("nextcord")
 logger.setLevel(logging.DEBUG)
@@ -21,6 +22,7 @@ logger.addHandler(handler)
 
 highscores_config = open_highscores_config()
 highscores_data = open_highscores_data()
+highscores_message_map = open_message_map()
 
 
 def main():
@@ -30,7 +32,7 @@ def main():
     intents = nextcord.Intents.default()
 
     # Required in order to read messages (eg. prefix commands)
-    intents.message_content = True
+    intents.message_content = True  # pylint: disable=assigning-non-slot
 
     # To enable the guilds priveleged intent:
     # intents.guilds = True
