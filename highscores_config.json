@@ -179,6 +179,10 @@
         {
             "boss": "Yakamaru",
             "hardmode": false
+        },
+        {
+            "boss": "Zamorak, Lord of Chaos",
+            "hardmode": true
         }
     ],
     "categories": {
