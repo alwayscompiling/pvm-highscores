@@ -1,6 +1,5 @@
 """View for verification buttons"""
 
-from code import interact
 import nextcord
 from utilities.utils import submit_score  # pylint: disable=import-error
 
@@ -23,7 +22,7 @@ class VerificationView(nextcord.ui.View):
         score = content[3]
 
         await submit_score(interaction, user, boss_name, category, score)
-        await interaction.delete_original_message  # TODO doesn't work
+        await interaction.message.delete()
         await interaction.channel.send(
             f"Approved: {boss_name} {category} {user} {score}",
             files=[await attch.to_file() for attch in interaction.message.attachments],
@@ -34,5 +33,4 @@ class VerificationView(nextcord.ui.View):
         self, button: nextcord.ui.Button, interaction: nextcord.Interaction
     ):  # pylint: disable=unused-argument
         """Button for denying score submission."""
-        await interaction.response.send_message("Denied")
-        await interaction.delete_original_message
+        await interaction.message.delete()
