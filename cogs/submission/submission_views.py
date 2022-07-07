@@ -21,21 +21,16 @@ class SubmissionButton(nextcord.ui.View):
         """Button for score submission."""
         highscores_message_map = open_message_map()
         boss_name = highscores_message_map[str(interaction.message.id)]
-        await interaction.channel.send(f"submission for {boss_name}")
-        # await interaction.channel.send(
-        #     f"Submitting score for {boss_name}",
-        #     view=SubmissionView(self._category_select_options(interaction)),
-        # )
+        await interaction.channel.send(
+            f"Submitting score for {boss_name}",
+            view=SubmissionView(await self._category_select_options(boss_name)),
+        )
 
-    async def _category_select_options(
-        self, interaction: nextcord.Interaction
-    ) -> "list[nextcord.SelectOption]":
-        highscores_message_map = open_message_map()
-        boss_name = highscores_message_map[str(interaction.message.id)]
+    async def _category_select_options(self, boss_name: str) -> "list[nextcord.SelectOption]":
         options: list[nextcord.SelectOption] = []  # pylint: disable=unsubscriptable-object
         boss_dict = highscores_data[boss_name]
         for category in boss_dict["categories"].items():
-            options.append(nextcord.SelectOption(label=category))
+            options.append(nextcord.SelectOption(label=category[0]))
 
         return options
 
