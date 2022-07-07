@@ -39,7 +39,7 @@ def format_highscore_message(boss_name: str):
     return ret_string + "```"
 
 
-async def send_highscore_message(channel, boss_name: str):
+async def send_highscore_message(channel, boss_name: str) -> nextcord.Message:
     """
     Function takes care of checking if a message exists for a boss, then
     creating and sending/editing the message
@@ -50,16 +50,18 @@ async def send_highscore_message(channel, boss_name: str):
 
     message_id = highscores_data[boss_name]["message_id"]
     try:
-        message = await channel.fetch_message(message_id)
-        await message.edit(content=highscore_string, view=SubmissionView())
+        message: nextcord.Message = await channel.fetch_message(message_id)
+        await message.edit(content=highscore_string)
     except nextcord.NotFound:
         # message doesn't exist.
-        message = await channel.send(highscore_string, view=SubmissionView())
+        message: nextcord.Message = await channel.send(highscore_string)
         message_id = message.id
         highscores_data[boss_name]["message_id"] = message_id
         # save message -> boss_name in message_map
         highscores_message_map[str(message_id)] = boss_name
         save_message_map(highscores_message_map)
+
+    return message
 
 
 async def submit_score(

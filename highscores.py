@@ -12,7 +12,6 @@ import config
 from utilities.data_storage import open_highscores_config
 from utilities.data_storage import open_highscores_data
 from utilities.data_storage import open_message_map
-from utilities.views import SubmissionButtonView
 
 logger = logging.getLogger("nextcord")
 logger.setLevel(logging.DEBUG)
@@ -61,8 +60,6 @@ def main():
         """When Discord is connected"""
         assert bot.user is not None
         print(f"{bot.user.name} has connected to Discord!")
-        # add submit button view
-        bot.add_view(SubmissionButtonView())
 
     # Run Discord bot
     bot.run(config.DISCORD_TOKEN)
