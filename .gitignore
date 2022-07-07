@@ -133,3 +133,4 @@ nextcord.log
 # data file for bot
 highscores_data.json
 highscores_message_map.json
+highscores_config.json
