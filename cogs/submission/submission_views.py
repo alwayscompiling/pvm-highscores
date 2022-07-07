@@ -22,8 +22,8 @@ class SubmissionButton(nextcord.ui.View):
         highscores_message_map = open_message_map()
         boss_name = highscores_message_map[str(interaction.message.id)]
         await interaction.channel.send(
-            f"Submitting score for {boss_name}",
-            view=SubmissionView(await self._category_select_options(boss_name)),
+            f"<@{interaction.user.id}> Submitting score for {boss_name}",
+            view=SubmissionView(interaction, await self._category_select_options(boss_name)),
         )
 
     async def _category_select_options(self, boss_name: str) -> "list[nextcord.SelectOption]":
@@ -43,8 +43,8 @@ class SubmissionDropdown(nextcord.ui.Select):
             placeholder="Choose submission category.", min_values=1, max_values=1, options=options
         )
 
-        def callback(self, interaction: nextcord.Interaction):
-            pass
+    async def callback(self, interaction: nextcord.Interaction):
+        await interaction.response.edit_message(content=f"submitting for {self.values[0]}")
 
 
 class SubmissionView(nextcord.ui.View):
@@ -52,14 +52,14 @@ class SubmissionView(nextcord.ui.View):
 
     def __init__(
         self,
-        # button_view: SubmissionButtonView.submit_button,
+        button_interaction: nextcord.Interaction,
         options: "list[nextcord.SelectOption]",
         *,
         timeout: Optional[float] = 180,
     ):
         super().__init__(timeout=timeout)
         self.add_item(SubmissionDropdown(options))
-        # self._button_view = button_view
+        self._button_interaction = button_interaction
 
-    # async def interaction_check(self, interaction: nextcord.Interaction) -> bool:
-    #     return self._button_view.interaction.user == interaction.user  # unsure if works
+    async def interaction_check(self, interaction: nextcord.Interaction) -> bool:
+        return self._button_interaction.user == interaction.user
