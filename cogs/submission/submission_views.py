@@ -1,4 +1,4 @@
-"""Views used in highscores bot."""
+"""Views used for submission process."""
 
 from typing import Optional
 
@@ -23,7 +23,9 @@ class SubmissionButton(nextcord.ui.View):
         boss_name = highscores_message_map[str(interaction.message.id)]
         await interaction.channel.send(
             f"<@{interaction.user.id}> Submitting score for {boss_name}",
-            view=SubmissionView(interaction, await self._category_select_options(boss_name)),
+            view=SubmissionDropdownView(
+                interaction, await self._category_select_options(boss_name)
+            ),
         )
 
     async def _category_select_options(self, boss_name: str) -> "list[nextcord.SelectOption]":
@@ -44,22 +46,24 @@ class SubmissionDropdown(nextcord.ui.Select):
         )
 
     async def callback(self, interaction: nextcord.Interaction):
-        await interaction.response.edit_message(content=f"submitting for {self.values[0]}")
+        await interaction.message.edit(
+            content=f"submitting for {self.values[0]}",
+        )  # TODO create embed and then wait for response message.
 
 
-class SubmissionView(nextcord.ui.View):
-    """Defines entire submission process view"""
+class SubmissionDropdownView(nextcord.ui.View):
+    """Defines submission dropdown process view"""
 
     def __init__(
         self,
-        button_interaction: nextcord.Interaction,
+        prev_interaction: nextcord.Interaction,
         options: "list[nextcord.SelectOption]",
         *,
         timeout: Optional[float] = 180,
     ):
         super().__init__(timeout=timeout)
         self.add_item(SubmissionDropdown(options))
-        self._button_interaction = button_interaction
+        self._prev_interaction = prev_interaction
 
     async def interaction_check(self, interaction: nextcord.Interaction) -> bool:
-        return self._button_interaction.user == interaction.user
+        return self._prev_interaction.user == interaction.user
