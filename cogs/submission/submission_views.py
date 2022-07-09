@@ -39,7 +39,7 @@ class SubmissionButton(nextcord.ui.View):
             return (
                 interaction.user.id == check_message.author.id
                 and interaction.channel == check_message.channel
-            )  # unsure if comparison is correct
+            )  # TODO confirm no-one else can interact with someone's submission
 
         proof_message = await self._bot.wait_for("message", check=wait_check)
         embed = submission_message.embeds[0]
@@ -75,7 +75,7 @@ class SubmissionDropdown(nextcord.ui.Select):
         embed = interaction.message.embeds[0]
         embed.add_field(name="Category", value=self.values[0], inline=False)
         await interaction.message.edit(
-            embed=embed,
+            embed=embed,  # TODO solve ordering issue. currently have to choose category after score submission.
         )
 
 
@@ -95,7 +95,9 @@ class SubmissionDropdownView(nextcord.ui.View):
         self._prev_interaction = prev_interaction
         self.bot = bot
 
-    async def interaction_check(self, interaction: nextcord.Interaction) -> bool:
+    async def interaction_check(
+        self, interaction: nextcord.Interaction
+    ) -> bool:  # TODO confirm no-one else can interact with someone's submission
         return self._prev_interaction.user == interaction.user
 
     @nextcord.ui.button(
