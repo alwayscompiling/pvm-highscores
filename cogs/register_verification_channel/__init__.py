@@ -31,5 +31,5 @@ class RegisterVerificationChannel(commands.Cog, name="Register Verify Channel"):
 # This function will be called when this extension is loaded.
 # It is necessary to add these functions to the bot.
 def setup(bot: commands.Bot):
-    """Adds functon to bot"""
+    """Adds function to bot"""
     bot.add_cog(RegisterVerificationChannel(bot))

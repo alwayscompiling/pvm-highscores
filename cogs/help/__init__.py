@@ -22,5 +22,5 @@ class HelpCog(commands.Cog):
 
 # setup functions for bot
 def setup(bot: commands.Bot):
-    """Adds functon to bot"""
+    """Adds function to bot"""
     bot.add_cog(HelpCog(bot))

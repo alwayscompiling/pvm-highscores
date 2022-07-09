@@ -18,11 +18,6 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
-    @commands.Cog.listener()
-    async def on_ready(self):
-        """Called when cog is loaded"""
-        self.bot.add_view(SubmissionButton())
-
     @commands.command(name="post-scores")
     async def post_highscores(self, ctx: commands.Context):
         """
@@ -51,5 +46,5 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
 # This function will be called when this extension is loaded.
 # It is necessary to add these functions to the bot.
 def setup(bot: commands.Bot):
-    """Adds functon to bot"""
+    """Adds function to bot"""
     bot.add_cog(PostHighscores(bot))
