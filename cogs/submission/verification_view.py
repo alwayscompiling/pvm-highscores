@@ -1,5 +1,6 @@
 """View for verification buttons"""
 
+from warnings import catch_warnings
 import nextcord
 from utilities.utils import submit_score  # pylint: disable=import-error
 
@@ -27,9 +28,12 @@ class VerificationView(nextcord.ui.View):
             elif field["name"] == "User":
                 user = field["value"]
 
-        # TODO assert that all fields are filled out
-        await submit_score(interaction, user, boss_name, category, score)
-        await interaction.message.edit("Approved.", view=None)
+        try:
+            await submit_score(interaction, user, boss_name, category, score)
+            await interaction.message.edit("Approved.", view=None)
+        except UnboundLocalError:
+            await interaction.send("Instruct user to submit with all fields.")
+            await interaction.message.edit(view=None)
 
     @nextcord.ui.button(label="Deny", style=nextcord.ButtonStyle.red, custom_id="deny")
     async def deny_button(
