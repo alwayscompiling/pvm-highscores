@@ -1,6 +1,5 @@
 """View for verification buttons"""
 
-from warnings import catch_warnings
 import nextcord
 from utilities.utils import submit_score  # pylint: disable=import-error
 

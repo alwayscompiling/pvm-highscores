@@ -39,7 +39,7 @@ class SubmissionButton(nextcord.ui.View):
             return (
                 interaction.user.id == check_message.author.id
                 and interaction.channel == check_message.channel
-            )  # TODO confirm no-one else can interact with someone's submission
+            )
 
         proof_message = await self._bot.wait_for("message", check=wait_check)
         embed = submission_message.embeds[0]
@@ -95,9 +95,7 @@ class SubmissionDropdownView(nextcord.ui.View):
         self._prev_interaction = prev_interaction
         self.bot = bot
 
-    async def interaction_check(
-        self, interaction: nextcord.Interaction
-    ) -> bool:  # TODO confirm no-one else can interact with someone's submission
+    async def interaction_check(self, interaction: nextcord.Interaction) -> bool:
         return self._prev_interaction.user == interaction.user
 
     @nextcord.ui.button(
