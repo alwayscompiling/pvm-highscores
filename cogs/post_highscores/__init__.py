@@ -38,7 +38,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
 
         for boss in highscores_config["bosses"]:
             message: nextcord.Message = await send_highscore_message(channel, boss["boss"])
-            await message.edit(view=SubmissionButton())
+            await message.edit(view=SubmissionButton(self.bot))
 
         save_highscores_data(highscores_data)
 
