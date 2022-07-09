@@ -27,7 +27,8 @@ class SubmissionButton(nextcord.ui.View):
         embed = nextcord.Embed(title="Highscores Submission")
         embed.add_field(name="Boss", value=boss_name, inline=False)
         embed.add_field(name="User", value=interaction.user.display_name, inline=False)
-        submission_message = await interaction.channel.send(  # TODO change channel
+        channel = self._bot.get_channel(highscores_data["submission_channel_id"])
+        submission_message = await channel.send(
             f"<@{interaction.user.id}>",
             view=SubmissionDropdownView(
                 self._bot, interaction, await self._category_select_options(boss_name)
