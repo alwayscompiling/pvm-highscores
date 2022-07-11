@@ -79,9 +79,12 @@ async def submit_score(
     # create score tuple for either time or int
     # define sort index
     if highscores_config["categories"][category]["is_time_record"]:
-        minutes = score.split(":")[0]
-        seconds = score.split(":")[1]
-        score_seconds = int(minutes) * 60 + int(seconds)
+        if score.find(":") == -1:
+            score_seconds = float(score)
+        else:
+            minutes = score.split(":")[0]
+            seconds = score.split(":")[1]
+            score_seconds = int(minutes) * 60 + float(seconds)
         score_tuple = (user, score, score_seconds)
         sort_index = 2
 
