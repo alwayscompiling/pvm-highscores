@@ -76,9 +76,15 @@ async def submit_score(
     """
     # TODO update user submission to not have dupe users
 
+    # hardmode category, must have different category variable for config access.
+    if category.find("Hardmode ") != -1:
+        config_category = category.replace("Hardmode ", "")
+    else:
+        config_category = category
+
     # create score tuple for either time or int
     # define sort index
-    if highscores_config["categories"][category]["is_time_record"]:
+    if highscores_config["categories"][config_category]["is_time_record"]:
         if score.find(":") == -1:
             score_seconds = float(score)
         else:
@@ -98,7 +104,7 @@ async def submit_score(
     # sort scores.
     scores.sort(
         key=lambda x: x[sort_index],
-        reverse=not highscores_config["categories"][category]["ascending"],
+        reverse=not highscores_config["categories"][config_category]["ascending"],
     )
 
     # enforce highscore size
