@@ -1,5 +1,5 @@
 """
-Bot command to submit a score
+Defines cog for on message listener.
 """
 
 from nextcord.ext import commands
@@ -9,15 +9,15 @@ from highscores import submission_messages  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
 
 
-class Score(commands.Cog, name="Message Listener"):
-    """Submits a score."""
+class SubmissionListener(commands.Cog, name="Message Listener"):
+    """Sets up message listener."""
 
     def __init__(self, bot: commands.Bot):
         self.bot = bot
 
     @commands.Cog.listener()
     async def on_message(self, proof_message: nextcord.Message):
-        """Listener for message creation."""
+        """Listener for message creation. Adds score and attachments to submission."""
         for user_id, message_id in submission_messages.items():
             submission_message: nextcord.Message = await self.bot.get_channel(
                 highscores_data["submission_channel_id"]
@@ -42,4 +42,4 @@ class Score(commands.Cog, name="Message Listener"):
 # It is necessary to add these functions to the bot.
 def setup(bot: commands.Bot):
     """Adds function to bot"""
-    bot.add_cog(Score(bot))
+    bot.add_cog(SubmissionListener(bot))
