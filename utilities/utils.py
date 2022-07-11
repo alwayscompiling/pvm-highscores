@@ -98,7 +98,13 @@ async def submit_score(
         score_tuple = (user, int(score))
         sort_index = 1
 
-    scores = highscores_data[boss_name]["categories"][category]
+    scores: "list[tuple]" = highscores_data[boss_name]["categories"][category]
+
+    # if user is in an existing tuple, delete it.
+    for tup in scores:
+        if user == tup[0]:
+            scores.remove(tup)
+
     scores.append(score_tuple)
 
     # sort scores.
