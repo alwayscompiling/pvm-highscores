@@ -24,6 +24,8 @@ highscores_config = open_highscores_config()
 highscores_data = open_highscores_data()
 highscores_message_map = open_message_map()
 
+submission_messages: dict = {}
+
 
 def main():
     """Main function for bot."""
@@ -33,6 +35,7 @@ def main():
 
     # Required in order to read messages (eg. prefix commands)
     intents.message_content = True  # pylint: disable=assigning-non-slot
+    intents.messages = True  # pylint: disable=assigning-non-slot
 
     # To enable the guilds priveleged intent:
     # intents.guilds = True

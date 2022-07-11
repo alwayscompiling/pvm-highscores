@@ -7,6 +7,7 @@ from nextcord.ext import commands
 
 from utilities.data_storage import open_message_map  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
+from highscores import submission_messages  # pylint: disable=import-error
 from .verification_view import VerificationView
 
 
@@ -36,19 +37,8 @@ class SubmissionButton(nextcord.ui.View):
             embed=embed,
         )
 
-        def wait_check(check_message: nextcord.Message):
-            return (
-                interaction.user.id == check_message.author.id
-                and interaction.channel == check_message.channel
-            )
-
-        proof_message = await self._bot.wait_for("message", check=wait_check)
-        embed = submission_message.embeds[0]
-        embed.add_field(name="Score", value=proof_message.content, inline=False)
-        await submission_message.edit(
-            files=[await attch.to_file() for attch in proof_message.attachments], embed=embed
-        )
-        await proof_message.delete()
+        # a user should only have 1 submission active at once.
+        submission_messages[interaction.user.id] = submission_message.id
 
     async def _category_select_options(self, boss_name: str) -> "list[nextcord.SelectOption]":
         options: list[nextcord.SelectOption] = []  # pylint: disable=unsubscriptable-object
@@ -76,7 +66,7 @@ class SubmissionDropdown(nextcord.ui.Select):
         embed = interaction.message.embeds[0]
         embed.add_field(name="Category", value=self.values[0], inline=False)
         await interaction.message.edit(
-            embed=embed,  # TODO solve ordering issue. currently have to choose category after score submission.
+            embed=embed,
         )
 
 
@@ -119,6 +109,7 @@ class SubmissionDropdownView(nextcord.ui.View):
             embed=interaction.message.embeds[0],
         )
         await interaction.message.edit(content=f"<@{interaction.user.id}> Submitted!", view=None)
+        submission_messages.pop(interaction.user.id)
 
     @nextcord.ui.button(
         label="Cancel", style=nextcord.ButtonStyle.red, custom_id="cancel-submission"
@@ -127,4 +118,5 @@ class SubmissionDropdownView(nextcord.ui.View):
         self, button: nextcord.ui.Button, interaction: nextcord.Interaction
     ):  # pylint: disable=unused-argument
         """Deletes message to cancel interaction."""
+        submission_messages.pop(interaction.user.id)
         await interaction.message.delete()
