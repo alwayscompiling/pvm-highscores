@@ -72,7 +72,7 @@ async def submit_score(
     @param boss: the boss to add score to
     @param category: the category to add score to
     @param user: user who submitted score
-    @param score: score (int) to add
+    @param score: score to add
     """
     # TODO update user submission to not have dupe users
 

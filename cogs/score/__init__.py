@@ -27,6 +27,7 @@ class Score(commands.Cog, name="Score"):
         Usage:
         ```
         ?score "Boss Name" "Category" "score"
+        This command still works if you prefer to use it over the ui.
         ```
         """
         verification_channel_id = highscores_data["verification_channel_id"]
