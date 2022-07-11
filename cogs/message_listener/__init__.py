@@ -18,16 +18,14 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
     @commands.Cog.listener()
     async def on_message(self, proof_message: nextcord.Message):
         """Listener for message creation. Adds score and attachments to submission."""
-        for user_id, message_id in submission_messages.items():
+        if proof_message.author.id in submission_messages:
+            message_id = submission_messages[proof_message.author.id]
             submission_message: nextcord.Message = await self.bot.get_channel(
                 highscores_data["submission_channel_id"]
             ).fetch_message(message_id)
 
             # need check if correct user and correct channel
-            if (
-                proof_message.channel.id == highscores_data["submission_channel_id"]
-                and proof_message.author.id == user_id
-            ):
+            if proof_message.channel.id == highscores_data["submission_channel_id"]:
 
                 embed = submission_message.embeds[0]
                 embed.add_field(name="Score", value=proof_message.content, inline=False)
