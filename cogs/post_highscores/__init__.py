@@ -19,6 +19,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         self.bot = bot
 
     @commands.command(name="post-scores")
+    @commands.has_permissions(administrator=True)
     async def post_highscores(self, ctx: commands.Context):
         """
         A command which posts the highscore in the designated channel.
