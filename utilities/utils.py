@@ -85,6 +85,9 @@ async def submit_score(
     # capping to 12 characters because runescape names are 12 characters long.
     user = user[:12]
 
+    # strip leading zeros and colon from score
+    score = score.lstrip("0:")
+
     # create score tuple for either time or int
     # define sort index
     if highscores_config["categories"][config_category]["is_time_record"]:
