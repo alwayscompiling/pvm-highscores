@@ -108,11 +108,25 @@ async def submit_score(
     scores: "list[tuple]" = highscores_data[boss_name]["categories"][category]
 
     # if user is in an existing tuple, delete it.
+    users_scores: "list[tuple]" = [score_tuple]
     for tup in scores:
         if user == tup[0]:
-            scores.remove(tup)
+            # Add tup to users_scores, remove from scores
+            users_scores.append(tup)
 
-    scores.append(score_tuple)
+    # sort users_scores
+    users_scores.sort(
+        key=lambda x: x[sort_index],
+        reverse=not highscores_config["categories"][config_category]["ascending"],
+    )
+
+    for index, tup in enumerate(users_scores):
+        if index == 0:
+            # first score is the best score.
+            scores.append(tup)
+        else:
+            # discard all other scores from scores list.
+            scores.remove(tup)
 
     # sort scores.
     scores.sort(
@@ -132,7 +146,7 @@ async def submit_score(
 
     error_response = 'Registered Highscores channel does not exist or was never registered. \
             Register with "?register" command.'
-    assert channel is not None, await interaction.send(error_response)
+    assert channel is not None, await interaction.send(error_response, ephemeral=True)
 
     await send_highscore_message(channel, boss_name)
 
