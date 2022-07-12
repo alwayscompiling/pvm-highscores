@@ -21,7 +21,7 @@ def format_highscore_message(boss_name: str):
 
     # Gather all categories and add to string
     for key, value in boss_data["categories"].items():
-        ret_string += f"{key}".ljust(30, " ")
+        ret_string += f"{key}".ljust(25, " ")
     ret_string += "\n"
 
     highscore_size = highscores_config["highscore_size"]
@@ -31,9 +31,9 @@ def format_highscore_message(boss_name: str):
         for key, value in boss_data["categories"].items():
             if len(value) > i:
                 score = value[i]
-                ret_string += f"{i+1}: {score[0]} - {score[1]}".ljust(30, " ")
+                ret_string += f"{i+1}: {score[0]} - {score[1]}".ljust(25, " ")
             else:
-                ret_string += f"{i+1}: submit your score".ljust(30, " ")
+                ret_string += f"{i+1}: submit your score".ljust(25, " ")
         ret_string += "\n"
 
     return ret_string + "```"
@@ -81,6 +81,13 @@ async def submit_score(
         config_category = category.replace("Hardmode ", "")
     else:
         config_category = category
+
+    # capping to 12 characters because runescape names are 12 characters long.
+    # Splitting on pipe. My discord has multiple names on account split by pipe.
+    user = user.split("|")[0][:12]
+
+    # strip leading zeros and colon from score
+    score = score.lstrip("0:")
 
     # create score tuple for either time or int
     # define sort index
