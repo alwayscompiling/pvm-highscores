@@ -83,7 +83,8 @@ async def submit_score(
         config_category = category
 
     # capping to 12 characters because runescape names are 12 characters long.
-    user = user[:12]
+    # Splitting on pipe. My discord has multiple names on account split by pipe.
+    user = user.split("|")[0][:12]
 
     # strip leading zeros and colon from score
     score = score.lstrip("0:")
