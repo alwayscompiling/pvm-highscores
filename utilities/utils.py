@@ -123,10 +123,12 @@ async def submit_score(
     for index, tup in enumerate(users_scores):
         if index == 0:
             # first score is the best score.
-            scores.append(tup)
+            if tup not in scores:
+                scores.append(tup)
         else:
             # discard all other scores from scores list.
-            scores.remove(tup)
+            if tup in scores:
+                scores.remove(tup)
 
     # sort scores.
     scores.sort(
