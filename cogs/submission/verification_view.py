@@ -31,7 +31,7 @@ class VerificationView(nextcord.ui.View):
 
         try:
             await submit_score(interaction, user, boss_name, category, score)
-            await interaction.message.edit("Approved.", view=None)
+            await interaction.message.edit(f"Approved by <@{interaction.user.id}>.", view=None)
         except UnboundLocalError:
             await interaction.send("Instruct user to submit with all fields.")
             await interaction.message.edit(view=None)
