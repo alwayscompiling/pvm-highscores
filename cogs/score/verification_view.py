@@ -10,7 +10,9 @@ class VerificationView(nextcord.ui.View):
     def __init__(self):
         super().__init__(timeout=None)
 
-    @nextcord.ui.button(label="Approve", style=nextcord.ButtonStyle.green, custom_id="approve")
+    @nextcord.ui.button(
+        label="Approve", style=nextcord.ButtonStyle.green, custom_id="approve-score-command"
+    )
     async def approve_button(
         self, button: nextcord.ui.Button, interaction: nextcord.Interaction
     ):  # pylint: disable=unused-argument
@@ -28,7 +30,9 @@ class VerificationView(nextcord.ui.View):
             files=[await attch.to_file() for attch in interaction.message.attachments],
         )
 
-    @nextcord.ui.button(label="Deny", style=nextcord.ButtonStyle.red, custom_id="deny")
+    @nextcord.ui.button(
+        label="Deny", style=nextcord.ButtonStyle.red, custom_id="deny-score-command"
+    )
     async def deny_button(
         self, button: nextcord.ui.Button, interaction: nextcord.Interaction
     ):  # pylint: disable=unused-argument
