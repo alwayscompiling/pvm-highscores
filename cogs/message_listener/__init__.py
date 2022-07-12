@@ -28,11 +28,16 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
             if proof_message.channel.id == highscores_data["submission_channel_id"]:
 
                 embed = submission_message.embeds[0]
-                embed.add_field(name="Score", value=proof_message.content, inline=False)
-                await submission_message.edit(
-                    files=[await attch.to_file() for attch in proof_message.attachments],
-                    embed=embed,
-                )
+                if proof_message.content:
+                    embed.add_field(name="Score", value=proof_message.content, inline=False)
+                    await submission_message.edit(
+                        embed=embed,
+                    )
+                if len(proof_message.attachments) > 0:
+                    await submission_message.edit(
+                        files=[await attch.to_file() for attch in proof_message.attachments],
+                    )
+
                 await proof_message.delete()
 
 
