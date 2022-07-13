@@ -1,205 +1,843 @@
 {
-    "bosses": [
-        {
-            "boss": "The Ambassador",
-            "hardmode": true
+    "highscore_table": {
+        "The Ambassador": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Group Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Group Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Araxxi",
-            "hardmode": false
+        "Araxxi": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Arch-Glacor",
-            "hardmode": true
+        "Arch-Glacor": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Enrage": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Astellarn",
-            "hardmode": true
+        "Astellarn": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Group Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Group Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "The Barrows Brothers",
-            "hardmode": false
+        "The Barrows Brothers": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "The Barrows: Rise of the Six",
-            "hardmode": false
+        "The Barrows: Rise of the Six": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Beastmaster Durzag",
-            "hardmode": false
+        "Beastmaster Durzag": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Black Stone Dragon",
-            "hardmode": true
+        "Black Stone Dragon": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Group Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Group Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Chaos Elemental",
-            "hardmode": false
+        "Chaos Elemental": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Commander Zilyana",
-            "hardmode": true
+        "Commander Zilyana": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Corporeal Beast",
-            "hardmode": false
+        "Corporeal Beast": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Crassian Leviathan",
-            "hardmode": true
+        "Crassian Leviathan": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Group Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Group Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Croesus",
-            "hardmode": false
+        "Croesus": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Dagannoth Kings",
-            "hardmode": false
+        "Dagannoth Kings": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "General Graardor",
-            "hardmode": true
+        "General Graardor": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Giant Mole",
-            "hardmode": true
+        "Giant Mole": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Gregorovic",
-            "hardmode": true
+        "Gregorovic": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Har-Aken",
-            "hardmode": false
+        "Har-Aken": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Helwyr",
-            "hardmode": true
+        "Helwyr": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Kalphite King",
-            "hardmode": false
+        "Kalphite King": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Kalphite Queen",
-            "hardmode": false
+        "Kalphite Queen": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Kerapac",
-            "hardmode": true
+        "Kerapac": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "King Black Dragon",
-            "hardmode": false
+        "King Black Dragon": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Kree'arra",
-            "hardmode": true
+        "Kree'arra": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "K'ril Tsutsaroth",
-            "hardmode": true
+        "K'ril Tsutsaroth": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Legiones",
-            "hardmode": false
+        "Legiones": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "The Magister",
-            "hardmode": false
+        "The Magister": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Masuta the Ascended",
-            "hardmode": true
+        "Masuta the Ascended": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Group Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Group Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Nex",
-            "hardmode": false
+        "Nex": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Nex - Angel of Death",
-            "hardmode": false
+        "Nex - Angel of Death": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Queen Black Dragon",
-            "hardmode": false
+        "Queen Black Dragon": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Raksha",
-            "hardmode": true
+        "Raksha": {
+            "Solo Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Solo Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Duo Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Duo Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Rex Matriarchs",
-            "hardmode": false
+        "Rex Matriarchs": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "The Sanctum Guardian",
-            "hardmode": true
+        "The Sanctum Guardian": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Group Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Group Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Seiryu the Azure Serpent",
-            "hardmode": true
+        "Seiryu the Azure Serpent": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Group Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Group Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Solak",
-            "hardmode": false
+        "Solak": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Taraket the Necromancer",
-            "hardmode": true
+        "Taraket the Necromancer": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Group Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Group Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Telos",
-            "hardmode": false
+        "Telos": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Enrage": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "The Twin Furies",
-            "hardmode": true
+        "The Twin Furies": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "TzKal-Zuk",
-            "hardmode": true
+        "TzKal-Zuk": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "TzTok-Jad",
-            "hardmode": false
+        "TzTok-Jad": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Verak Lith",
-            "hardmode": true
+        "Verak Lith": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Group Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Group Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Vindicta & Gorvek",
-            "hardmode": true
+        "Vindicta & Gorvek": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Vorago",
-            "hardmode": true
+        "Vorago": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Hardmode Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Hardmode Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Yakamaru",
-            "hardmode": false
+        "Yakamaru": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         },
-        {
-            "boss": "Zamorak, Lord of Chaos",
-            "hardmode": true
+        "Zamorak, Lord of Chaos (solo)": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Enrage": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Spooned Log": {
+                "ascending": true,
+                "is_time_record": false
+            }
         }
-    ],
-    "categories": {
-        "Kill Count": {
-            "hardmode": true,
-            "ascending": false,
-            "is_time_record": false
-        },
-        "Kill Time": {
-            "hardmode": true,
-            "ascending": true,
-            "is_time_record": true
-        },
-        "Spooned Log": {
-            "hardmode": false,
-            "ascending": true,
-            "is_time_record": false
+        ,
+        "Zamorak, Lord of Chaos (group)": {
+            "Kill Count": {
+                "ascending": false,
+                "is_time_record": false
+            },
+            "Kill Time": {
+                "ascending": true,
+                "is_time_record": true
+            },
+            "Enrage": {
+                "ascending": false,
+                "is_time_record": false
+            }
         }
     },
     "highscore_size": 3
