@@ -74,13 +74,8 @@ async def submit_score(
     @param user: user who submitted score
     @param score: score to add
     """
-    # TODO update user submission to not have dupe users
 
-    # hardmode category, must have different category variable for config access.
-    if category.find("Hardmode ") != -1:
-        config_category = category.replace("Hardmode ", "")
-    else:
-        config_category = category
+    boss_category_config = highscores_config["highscore_table"][boss_name][category]
 
     # capping to 12 characters because runescape names are 12 characters long.
     # Splitting on pipe. My discord has multiple names on account split by pipe.
@@ -91,7 +86,7 @@ async def submit_score(
 
     # create score tuple for either time or int
     # define sort index
-    if highscores_config["categories"][config_category]["is_time_record"]:
+    if boss_category_config["is_time_record"]:
         if score.find(":") == -1:
             score_seconds = float(score)
         else:
@@ -117,7 +112,7 @@ async def submit_score(
     # sort users_scores
     users_scores.sort(
         key=lambda x: x[sort_index],
-        reverse=not highscores_config["categories"][config_category]["ascending"],
+        reverse=not boss_category_config["ascending"],
     )
 
     for index, tup in enumerate(users_scores):
@@ -133,7 +128,7 @@ async def submit_score(
     # sort scores.
     scores.sort(
         key=lambda x: x[sort_index],
-        reverse=not highscores_config["categories"][config_category]["ascending"],
+        reverse=not boss_category_config["ascending"],
     )
 
     # enforce highscore size

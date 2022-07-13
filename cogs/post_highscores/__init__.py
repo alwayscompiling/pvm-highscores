@@ -37,8 +37,10 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
                 Register with "?register" command.'
         assert channel is not None, await ctx.send(error_response)
 
-        for boss in highscores_config["bosses"]:
-            message: nextcord.Message = await send_highscore_message(channel, boss["boss"])
+        for boss, categories in highscores_config[  # pylint: disable=unused-variable
+            "highscore_table"
+        ].items():
+            message: nextcord.Message = await send_highscore_message(channel, boss)
             await message.edit(view=SubmissionButton(self.bot))
 
         save_highscores_data(highscores_data)
