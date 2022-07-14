@@ -33,7 +33,7 @@ def open_highscores_data():
         for boss, categories in config["highscore_table"].items():
             data[boss] = {"message_id": 0}
             boss_categories = {}
-            for category, category_config in categories.items():  # pylint: disable=unused-variable
+            for category in categories:  # pylint: disable=unused-variable
                 rank_list = []
                 boss_categories[category] = rank_list
             data[boss]["categories"] = boss_categories

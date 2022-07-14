@@ -1,843 +1,326 @@
 {
     "highscore_table": {
-        "The Ambassador": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Group Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Group Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
+        "The Ambassador": [
+            "Kill Count",
+            "Kill Time",
+            "Group Kill Count",
+            "Group Kill Time",
+            "Spooned Log"
+        ],
+        "Araxxi": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Arch-Glacor": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Enrage",
+            "Spooned Log"
+        ],
+        "Astellarn": [
+            "Kill Count",
+            "Kill Time",
+            "Group Kill Count",
+            "Group Kill Time",
+            "Spooned Log"
+        ],
+        "The Barrows Brothers": [
+            "Kill Count",
+            "Spooned Log"
+        ],
+        "The Barrows: Rise of the Six": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Beastmaster Durzag": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Black Stone Dragon": [
+            "Kill Count",
+            "Kill Time",
+            "Group Kill Count",
+            "Group Kill Time",
+            "Spooned Log"
+        ],
+        "Chaos Elemental": [
+            "Kill Count",
+            "Spooned Log"
+        ],
+        "Commander Zilyana": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "Corporeal Beast": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Crassian Leviathan": [
+            "Kill Count",
+            "Kill Time",
+            "Group Kill Count",
+            "Group Kill Time",
+            "Spooned Log"
+        ],
+        "Croesus": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Dagannoth Kings": [
+            "Kill Count",
+            "Spooned Log"
+        ],
+        "General Graardor": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "Giant Mole": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "Gregorovic": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "Har-Aken": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Helwyr": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "Kalphite King": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Kalphite Queen": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Kerapac": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "King Black Dragon": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Kree'arra": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "K'ril Tsutsaroth": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "Legiones": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "The Magister": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Masuta the Ascended": [
+            "Kill Count",
+            "Kill Time",
+            "Group Kill Count",
+            "Group Kill Time",
+            "Spooned Log"
+        ],
+        "Nex": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Nex - Angel of Death": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Queen Black Dragon": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Raksha": [
+            "Solo Kill Count",
+            "Solo Kill Time",
+            "Duo Kill Count",
+            "Duo Kill Time",
+            "Spooned Log"
+        ],
+        "Rex Matriarchs": [
+            "Kill Count",
+            "Spooned Log"
+        ],
+        "The Sanctum Guardian": [
+            "Kill Count",
+            "Kill Time",
+            "Group Kill Count",
+            "Group Kill Time",
+            "Spooned Log"
+        ],
+        "Seiryu the Azure Serpent": [
+            "Kill Count",
+            "Kill Time",
+            "Group Kill Count",
+            "Group Kill Time",
+            "Spooned Log"
+        ],
+        "Solak": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Taraket the Necromancer": [
+            "Kill Count",
+            "Kill Time",
+            "Group Kill Count",
+            "Group Kill Time",
+            "Spooned Log"
+        ],
+        "Telos": [
+            "Kill Count",
+            "Kill Time",
+            "Enrage",
+            "Spooned Log"
+        ],
+        "The Twin Furies": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "TzKal-Zuk": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "TzTok-Jad": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Verak Lith": [
+            "Kill Count",
+            "Kill Time",
+            "Group Kill Count",
+            "Group Kill Time",
+            "Spooned Log"
+        ],
+        "Vindicta & Gorvek": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "Vorago": [
+            "Kill Count",
+            "Kill Time",
+            "Hardmode Kill Count",
+            "Hardmode Kill Time",
+            "Spooned Log"
+        ],
+        "Yakamaru": [
+            "Kill Count",
+            "Kill Time",
+            "Spooned Log"
+        ],
+        "Zamorak, Lord of Chaos (solo)": [
+            "Kill Count",
+            "Kill Time",
+            "Enrage",
+            "Spooned Log"
+        ],
+        "Zamorak, Lord of Chaos (group)": [
+            "Kill Count",
+            "Kill Time",
+            "Enrage"
+        ]
+    },
+    "categories": {
+        "Duo Kill Count": {
+            "ascending": false,
+            "is_time_record": false
         },
-        "Araxxi": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
+        "Duo Kill Time": {
+            "ascending": true,
+            "is_time_record": true
         },
-        "Arch-Glacor": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Enrage": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
+        "Enrage": {
+            "ascending": false,
+            "is_time_record": false
         },
-        "Astellarn": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Group Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Group Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
+        "Group Kill Count": {
+            "ascending": false,
+            "is_time_record": false
         },
-        "The Barrows Brothers": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
+        "Group Kill Time": {
+            "ascending": true,
+            "is_time_record": true
         },
-        "The Barrows: Rise of the Six": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
+        "Hardmode Kill Count": {
+            "ascending": false,
+            "is_time_record": false
         },
-        "Beastmaster Durzag": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
+        "Hardmode Kill Time": {
+            "ascending": true,
+            "is_time_record": true
         },
-        "Black Stone Dragon": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Group Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Group Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
+        "Kill Count": {
+            "ascending": false,
+            "is_time_record": false
         },
-        "Chaos Elemental": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
+        "Kill Time": {
+            "ascending": true,
+            "is_time_record": true
         },
-        "Commander Zilyana": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Corporeal Beast": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Crassian Leviathan": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Group Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Group Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Croesus": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Dagannoth Kings": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "General Graardor": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Giant Mole": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Gregorovic": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Har-Aken": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Helwyr": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Kalphite King": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Kalphite Queen": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Kerapac": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "King Black Dragon": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Kree'arra": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "K'ril Tsutsaroth": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Legiones": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "The Magister": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Masuta the Ascended": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Group Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Group Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Nex": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Nex - Angel of Death": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Queen Black Dragon": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Raksha": {
-            "Solo Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Solo Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Duo Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Duo Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Rex Matriarchs": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "The Sanctum Guardian": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Group Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Group Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Seiryu the Azure Serpent": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Group Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Group Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Solak": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Taraket the Necromancer": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Group Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Group Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Telos": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Enrage": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "The Twin Furies": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "TzKal-Zuk": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "TzTok-Jad": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Verak Lith": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Group Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Group Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Vindicta & Gorvek": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Vorago": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Hardmode Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Hardmode Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Yakamaru": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        },
-        "Zamorak, Lord of Chaos (solo)": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Enrage": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Spooned Log": {
-                "ascending": true,
-                "is_time_record": false
-            }
-        }
-        ,
-        "Zamorak, Lord of Chaos (group)": {
-            "Kill Count": {
-                "ascending": false,
-                "is_time_record": false
-            },
-            "Kill Time": {
-                "ascending": true,
-                "is_time_record": true
-            },
-            "Enrage": {
-                "ascending": false,
-                "is_time_record": false
-            }
+        "Spooned Log": {
+            "ascending": true,
+            "is_time_record": false
         }
     },
     "highscore_size": 3

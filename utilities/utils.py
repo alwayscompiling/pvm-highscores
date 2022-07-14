@@ -75,7 +75,7 @@ async def submit_score(
     @param score: score to add
     """
 
-    boss_category_config = highscores_config["highscore_table"][boss_name][category]
+    boss_category_config = highscores_config["categories"][category]
 
     # capping to 12 characters because runescape names are 12 characters long.
     # Splitting on pipe. My discord has multiple names on account split by pipe.
