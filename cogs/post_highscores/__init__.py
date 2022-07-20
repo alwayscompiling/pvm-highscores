@@ -5,7 +5,7 @@ Bot command to post the highscores
 from nextcord.ext import commands
 import nextcord
 
-from cogs.submission.submission_views import SubmissionButton  # pylint: disable=import-error
+from cogs.submission.submission_views import SubmissionCreateButton  # pylint: disable=import-error
 from highscores import highscores_config  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
 from utilities.data_storage import save_highscores_data  # pylint: disable=import-error
@@ -41,7 +41,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
             "highscore_table"
         ].items():
             message: nextcord.Message = await send_highscore_message(channel, boss)
-            await message.edit(view=SubmissionButton(self.bot))
+            await message.edit(view=SubmissionCreateButton(self.bot))
 
         save_highscores_data(highscores_data)
 

@@ -4,7 +4,7 @@ Cog for creating submission process.
 
 from nextcord.ext import commands
 
-from .submission_views import SubmissionButton
+from .submission_views import SubmissionCreateButton
 from .verification_view import VerificationView
 
 
@@ -17,7 +17,7 @@ class SubmissionCog(commands.Cog, name="Submission Cog"):
     @commands.Cog.listener()
     async def on_ready(self):
         """Called when cog is loaded"""
-        self.bot.add_view(SubmissionButton(self.bot))
+        self.bot.add_view(SubmissionCreateButton(self.bot))
         self.bot.add_view(VerificationView())
 
 
