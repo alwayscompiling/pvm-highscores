@@ -19,10 +19,13 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
     async def on_message(self, proof_message: nextcord.Message):
         """Listener for message creation. Adds score and attachments to submission."""
         if proof_message.author.id in submission_messages:
-            message_id = submission_messages[proof_message.author.id]
+            message_id = submission_messages[proof_message.author.id]["message_id"]
             submission_message: nextcord.Message = await self.bot.get_channel(
                 highscores_data["submission_channel_id"]
             ).fetch_message(message_id)
+
+            # TODO only want to do things when on certain steps
+            # want to regex score to ensure it is correct. here is also where score can be standardized in look
 
             # need check if correct user and correct channel
             if proof_message.channel.id == highscores_data["submission_channel_id"]:
