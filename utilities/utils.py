@@ -30,8 +30,10 @@ def format_highscore_message(boss_name: str):
     for i in range(highscore_size):
         for key, value in boss_data["categories"].items():
             if len(value) > i:
-                score = value[i]
-                ret_string += f"{i+1}: {score[0]} - {score[1]}".ljust(25, " ")
+                score_pair = value[i]
+                username = score_pair[0].ljust(highscores_data["username_length"], " ")
+                score = score_pair[1]
+                ret_string += f"{i+1}: {username} - {score}".ljust(25, " ")
             else:
                 ret_string += f"{i+1}: submit your score".ljust(25, " ")
         ret_string += "\n"
