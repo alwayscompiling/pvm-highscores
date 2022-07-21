@@ -11,6 +11,15 @@ class VerificationView(nextcord.ui.View):
         super().__init__(timeout=None)
 
     @nextcord.ui.button(
+        label="Deny", style=nextcord.ButtonStyle.red, custom_id="deny-button-submission"
+    )
+    async def deny_button(
+        self, button: nextcord.ui.Button, interaction: nextcord.Interaction
+    ):  # pylint: disable=unused-argument
+        """Button for denying score submission."""
+        await interaction.message.delete()
+
+    @nextcord.ui.button(
         label="Approve", style=nextcord.ButtonStyle.green, custom_id="approve-button-submission"
     )
     async def approve_button(
@@ -35,12 +44,3 @@ class VerificationView(nextcord.ui.View):
         except UnboundLocalError:
             await interaction.send("Instruct user to submit with all fields.")
             await interaction.message.edit(view=None)
-
-    @nextcord.ui.button(
-        label="Deny", style=nextcord.ButtonStyle.red, custom_id="deny-button-submission"
-    )
-    async def deny_button(
-        self, button: nextcord.ui.Button, interaction: nextcord.Interaction
-    ):  # pylint: disable=unused-argument
-        """Button for denying score submission."""
-        await interaction.message.delete()
