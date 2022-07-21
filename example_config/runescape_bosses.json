@@ -212,8 +212,8 @@
             "Spooned Log"
         ],
         "Taraket the Necromancer": [
-            "Kill Count",
-            "Kill Time",
+            "Solo Kill Count",
+            "Solo Kill Time",
             "Group Kill Count",
             "Group Kill Time",
             "Spooned Log"
@@ -244,8 +244,8 @@
             "Spooned Log"
         ],
         "Verak Lith": [
-            "Kill Count",
-            "Kill Time",
+            "Solo Kill Count",
+            "Solo Kill Time",
             "Group Kill Count",
             "Group Kill Time",
             "Spooned Log"
@@ -315,6 +315,14 @@
             "is_time_record": false
         },
         "Kill Time": {
+            "ascending": true,
+            "is_time_record": true
+        },
+        "Solo Kill Count": {
+            "ascending": false,
+            "is_time_record": false
+        },
+        "Solo Kill Time": {
             "ascending": true,
             "is_time_record": true
         },
