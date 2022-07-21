@@ -121,11 +121,24 @@ class NextButton(nextcord.ui.Button):
 
     # TODO verify proper information has been gathered
     async def callback(self, interaction: nextcord.Interaction):
+        # check if fields have been filled out for each state
         state: SubmissionState = submission_objects[interaction.user.id]["submission_state"]
-        state = SubmissionState(state.value + 1)
-        submission_objects[interaction.user.id]["submission_state"] = state
-        embed = get_submission_embed(interaction.user.id)
-        await interaction.edit(embed=embed, view=SubmissionView(self._bot, interaction.user.id))
+        if (
+            state == SubmissionState.CATEGORY
+            and not submission_objects[interaction.user.id]["category"]
+        ):
+            await interaction.send("Please choose a category.", ephemeral=True)
+        elif (
+            state == SubmissionState.SCORE and not submission_objects[interaction.user.id]["score"]
+        ):
+            await interaction.send("Please send a score.", ephemeral=True)
+        elif state == SubmissionState.PROOF and not len(interaction.message.attachments) > 0:
+            await interaction.send("Please attach picture for proof.", ephemeral=True)
+        else:
+            state = SubmissionState(state.value + 1)
+            submission_objects[interaction.user.id]["submission_state"] = state
+            embed = get_submission_embed(interaction.user.id)
+            await interaction.edit(embed=embed, view=SubmissionView(self._bot, interaction.user.id))
 
 
 class SubmitButton(nextcord.ui.Button):

@@ -31,31 +31,19 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
 
             # need check if correct user and correct channel
             if message.channel.id == highscores_data["submission_channel_id"]:
-
-                if (
-                    submission_objects[message.author.id]["submission_state"]
-                    == SubmissionState.SCORE
-                    and message.content
-                ):
+                state = submission_objects[message.author.id]["submission_state"]
+                if state == SubmissionState.SCORE and message.content:
                     # TODO add score format verification
                     submission_objects[message.author.id]["score"] = message.content
                     embed = get_submission_embed(message.author.id)
                     await submission_message.edit(
                         embed=embed,
                     )
-                elif (
-                    submission_objects[message.author.id]["submission_state"]
-                    == SubmissionState.PROOF
-                    and len(message.attachments) > 0
-                ):
+                elif state == SubmissionState.PROOF and len(message.attachments) > 0:
                     await submission_message.edit(
                         files=[await attch.to_file() for attch in message.attachments],
                     )
-                elif (
-                    submission_objects[message.author.id]["submission_state"]
-                    == SubmissionState.NAME
-                    and message.content
-                ):
+                elif state == SubmissionState.NAME and message.content:
                     submission_objects[message.author.id]["username"] = message.content[:12]
                     embed = get_submission_embed(message.author.id)
                     await submission_message.edit(
