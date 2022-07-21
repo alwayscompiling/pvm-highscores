@@ -65,7 +65,9 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
                         files=[await attch.to_file() for attch in message.attachments],
                     )
                 elif state == SubmissionState.NAME and message.content:
-                    submission_objects[message.author.id]["username"] = message.content[:12]
+                    submission_objects[message.author.id]["username"] = message.content[
+                        : highscores_data["username_length"]
+                    ]
                     embed = get_submission_embed(message.author.id)
                     await submission_message.edit(
                         embed=embed,

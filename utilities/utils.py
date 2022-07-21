@@ -21,7 +21,7 @@ def format_highscore_message(boss_name: str):
 
     # Gather all categories and add to string
     for key, value in boss_data["categories"].items():
-        ret_string += f"{key}".ljust(25, " ")
+        ret_string += f"{key}".ljust(26, " ")
     ret_string += "\n"
 
     highscore_size = highscores_config["highscore_size"]
@@ -30,10 +30,25 @@ def format_highscore_message(boss_name: str):
     for i in range(highscore_size):
         for key, value in boss_data["categories"].items():
             if len(value) > i:
-                score = value[i]
-                ret_string += f"{i+1}: {score[0]} - {score[1]}".ljust(25, " ")
+                score_pair = value[i]
+
+                # pad username to max length.
+                username: str = score_pair[0].ljust(highscores_data["username_length"], " ")
+                score: str = str(score_pair[1])
+
+                # standardize time score format.
+                if highscores_config["categories"][key]["is_time_record"]:
+                    if score.find(":") == -1:
+                        score = "00:" + score
+                    elif len(score.split(":", maxsplit=1)[0]) < 2:
+                        score = "0" + score
+                    if score.find(".") == -1:
+                        # insert 2 spaces to make up for period and ms
+                        score = score + "  "
+                line_str = f"{i+1}: {username} - "
+                ret_string += line_str + score.rjust(26 - len(line_str) - 1) + " "
             else:
-                ret_string += f"{i+1}: submit your score".ljust(25, " ")
+                ret_string += f"{i+1}: submit your score".ljust(26, " ")
         ret_string += "\n"
 
     return ret_string + "```"
@@ -77,9 +92,9 @@ async def submit_score(
 
     boss_category_config = highscores_config["categories"][category]
 
-    # capping to 12 characters because runescape names are 12 characters long.
     # Splitting on pipe. My discord has multiple names on account split by pipe.
-    user = user.split("|")[0][:12]
+    # cap length to data defined length.
+    user = user.split("|")[0][: highscores_data["username_length"]]
 
     # strip leading zeros and colon from score
     score = score.lstrip("0:")
