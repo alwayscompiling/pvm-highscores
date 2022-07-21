@@ -26,14 +26,13 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
                 highscores_data["submission_channel_id"]
             ).fetch_message(message_id)
 
-            # TODO only want to do things when on certain steps
-            # want to regex score to ensure it is correct. here is also where score can be standardized in look
+            # TODO want to regex score to ensure it is correct.
+            # # here is also where score can be standardized in look
 
             # need check if correct user and correct channel
             if message.channel.id == highscores_data["submission_channel_id"]:
                 state = submission_objects[message.author.id]["submission_state"]
                 if state == SubmissionState.SCORE and message.content:
-                    # TODO add score format verification
                     submission_objects[message.author.id]["score"] = message.content
                     embed = get_submission_embed(message.author.id)
                     await submission_message.edit(

@@ -119,7 +119,6 @@ class NextButton(nextcord.ui.Button):
         super().__init__(label="Next", style=nextcord.ButtonStyle.primary, custom_id="next")
         self._bot = bot
 
-    # TODO verify proper information has been gathered
     async def callback(self, interaction: nextcord.Interaction):
         # check if fields have been filled out for each state
         state: SubmissionState = submission_objects[interaction.user.id]["submission_state"]
