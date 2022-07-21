@@ -31,8 +31,17 @@ def format_highscore_message(boss_name: str):
         for key, value in boss_data["categories"].items():
             if len(value) > i:
                 score_pair = value[i]
-                username = score_pair[0].ljust(highscores_data["username_length"], " ")
-                score = score_pair[1]
+
+                # pad username to max length.
+                username: str = score_pair[0].ljust(highscores_data["username_length"], " ")
+                score: str = score_pair[1]
+
+                # standardize time score format.
+                if highscores_config["categories"][key]["is_time_record"]:
+                    if score.find(":") == -1:
+                        score = "00:" + score
+                    if score.find(".") == -1:
+                        score = score + "  "
                 ret_string += f"{i+1}: {username} - {score}".ljust(25, " ")
             else:
                 ret_string += f"{i+1}: submit your score".ljust(25, " ")
