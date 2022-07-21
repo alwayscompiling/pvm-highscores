@@ -77,9 +77,9 @@ async def submit_score(
 
     boss_category_config = highscores_config["categories"][category]
 
-    # capping to 12 characters because runescape names are 12 characters long.
     # Splitting on pipe. My discord has multiple names on account split by pipe.
-    user = user.split("|")[0][:12]
+    # cap length to data defined length.
+    user = user.split("|")[0][: highscores_data["username_length"]]
 
     # strip leading zeros and colon from score
     score = score.lstrip("0:")

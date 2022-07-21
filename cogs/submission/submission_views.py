@@ -201,7 +201,9 @@ class SubmissionCreateButton(nextcord.ui.View):
             "boss_name": boss_name,
             "score": "",
             "category": "",
-            "username": interaction.user.display_name.split("|")[0][:12],
+            "username": interaction.user.display_name.split("|")[0][
+                : highscores_data["username_length"]
+            ],
         }
 
         embed = get_submission_embed(interaction.user.id)
