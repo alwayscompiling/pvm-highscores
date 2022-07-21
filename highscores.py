@@ -24,7 +24,7 @@ highscores_config = open_highscores_config()
 highscores_data = open_highscores_data()
 highscores_message_map = open_message_map()
 
-submission_messages: dict = {}
+submission_objects: dict = {}
 
 
 def main():

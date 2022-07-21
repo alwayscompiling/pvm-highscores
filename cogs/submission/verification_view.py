@@ -26,7 +26,7 @@ class VerificationView(nextcord.ui.View):
                 category = field["value"]
             elif field["name"] == "Score":
                 score = field["value"]
-            elif field["name"] == "User":
+            elif field["name"] == "User Name":
                 user = field["value"]
 
         try:

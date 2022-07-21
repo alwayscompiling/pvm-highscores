@@ -9,7 +9,7 @@ from nextcord.ext import commands
 
 from utilities.data_storage import open_message_map  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
-from highscores import submission_messages  # pylint: disable=import-error
+from highscores import submission_objects  # pylint: disable=import-error
 from .verification_view import VerificationView
 
 
@@ -21,11 +21,12 @@ class SubmissionState(Enum):
     PROOF = 3
     NAME = 4
     SUBMIT = 5
+    VERIFY = 6
 
 
 def get_submission_embed(userid: int) -> nextcord.Embed:
     """Creates an embed based off of the submission state and fields filled out."""
-    usersubmission: dict = submission_messages[userid]
+    usersubmission: dict = submission_objects[userid]
     state: SubmissionState = usersubmission["submission_state"]
 
     if state is SubmissionState.CATEGORY:
@@ -38,6 +39,8 @@ def get_submission_embed(userid: int) -> nextcord.Embed:
         description = "Step 4 (Optional): Change name on submission! (proceed to next if skipping)"
     elif state is SubmissionState.SUBMIT:
         description = "Step 5: Submit if everything looks correct!"
+    elif state is SubmissionState.VERIFY:
+        description = "Review fields and accept."
 
     embed = Embed(title="Highscores Submission", description=description)
     embed.add_field(name="User Name", value=usersubmission["username"], inline=False)
@@ -76,7 +79,7 @@ class SubmissionDropdown(nextcord.ui.Select):
         self._bot = bot
 
     async def callback(self, interaction: nextcord.Interaction):
-        submission_messages[interaction.user.id]["category"] = self.values[0]
+        submission_objects[interaction.user.id]["category"] = self.values[0]
         embed = get_submission_embed(interaction.user.id)
         await interaction.message.edit(
             embed=embed,
@@ -91,9 +94,9 @@ class BackButton(nextcord.ui.Button):
         self._bot = bot
 
     async def callback(self, interaction: nextcord.Interaction):
-        state: SubmissionState = submission_messages[interaction.user.id]["submission_state"]
+        state: SubmissionState = submission_objects[interaction.user.id]["submission_state"]
         state = SubmissionState(state.value - 1)
-        submission_messages[interaction.user.id]["submission_state"] = state
+        submission_objects[interaction.user.id]["submission_state"] = state
         embed = get_submission_embed(interaction.user.id)
         await interaction.edit(embed=embed, view=SubmissionView(self._bot, interaction.user.id))
 
@@ -105,7 +108,7 @@ class CancelButton(nextcord.ui.Button):
         super().__init__(label="Cancel", style=nextcord.ButtonStyle.red, custom_id="cancel")
 
     async def callback(self, interaction: nextcord.Interaction):
-        submission_messages.pop(interaction.user.id)
+        submission_objects.pop(interaction.user.id)
         await interaction.message.delete()
 
 
@@ -118,9 +121,9 @@ class NextButton(nextcord.ui.Button):
 
     # TODO verify proper information has been gathered
     async def callback(self, interaction: nextcord.Interaction):
-        state: SubmissionState = submission_messages[interaction.user.id]["submission_state"]
+        state: SubmissionState = submission_objects[interaction.user.id]["submission_state"]
         state = SubmissionState(state.value + 1)
-        submission_messages[interaction.user.id]["submission_state"] = state
+        submission_objects[interaction.user.id]["submission_state"] = state
         embed = get_submission_embed(interaction.user.id)
         await interaction.edit(embed=embed, view=SubmissionView(self._bot, interaction.user.id))
 
@@ -140,14 +143,18 @@ class SubmitButton(nextcord.ui.Button):
                 Contact server admins."
         assert channel is not None, await channel.send(error_response)
 
+        submission_objects[interaction.user.id]["submission_state"] = SubmissionState.VERIFY
+
+        embed = get_submission_embed(interaction.user.id)
+
         await channel.send(
             files=[await attch.to_file() for attch in interaction.message.attachments],
             view=VerificationView(),
-            embed=interaction.message.embeds[0],
+            embed=embed,
             content=f"Submission from {interaction.user.display_name}",
         )
         await interaction.message.edit(content=f"<@{interaction.user.id}> Submitted!", view=None)
-        submission_messages.pop(interaction.user.id)
+        submission_objects.pop(interaction.user.id)
 
 
 ############ Submission Views ############
@@ -176,7 +183,7 @@ class SubmissionCreateButton(nextcord.ui.View):
 
         # a user should only have 1 submission active at once.
         # submitting with dummy message_id until message created
-        submission_messages[interaction.user.id] = {
+        submission_objects[interaction.user.id] = {
             "message_id": 0,
             "submission_state": SubmissionState.CATEGORY,
             "boss_name": boss_name,
@@ -197,7 +204,7 @@ class SubmissionCreateButton(nextcord.ui.View):
         )
 
         # update the message_id once its created
-        submission_messages[interaction.user.id]["message_id"] = submission_message.id
+        submission_objects[interaction.user.id]["message_id"] = submission_message.id
 
 
 class SubmissionView(nextcord.ui.View):
@@ -213,8 +220,8 @@ class SubmissionView(nextcord.ui.View):
         super().__init__(timeout=timeout)
         self._submission_user = submission_user
         self._bot = bot
-        self._state = submission_messages[self._submission_user]["submission_state"]
-        self._boss_name = submission_messages[self._submission_user]["boss_name"]
+        self._state = submission_objects[self._submission_user]["submission_state"]
+        self._boss_name = submission_objects[self._submission_user]["boss_name"]
 
         # add items depending on given state
         if self._state is SubmissionState.CATEGORY:
