@@ -21,7 +21,7 @@ def format_highscore_message(boss_name: str):
 
     # Gather all categories and add to string
     for key, value in boss_data["categories"].items():
-        ret_string += f"{key}".ljust(25, " ")
+        ret_string += f"{key}".ljust(26, " ")
     ret_string += "\n"
 
     highscore_size = highscores_config["highscore_size"]
@@ -34,17 +34,21 @@ def format_highscore_message(boss_name: str):
 
                 # pad username to max length.
                 username: str = score_pair[0].ljust(highscores_data["username_length"], " ")
-                score: str = score_pair[1]
+                score: str = str(score_pair[1])
 
                 # standardize time score format.
                 if highscores_config["categories"][key]["is_time_record"]:
                     if score.find(":") == -1:
                         score = "00:" + score
+                    elif len(score.split(":", maxsplit=1)[0]) < 2:
+                        score = "0" + score
                     if score.find(".") == -1:
+                        # insert 2 spaces to make up for period and ms
                         score = score + "  "
-                ret_string += f"{i+1}: {username} - {score}".ljust(25, " ")
+                line_str = f"{i+1}: {username} - "
+                ret_string += line_str + score.rjust(26 - len(line_str) - 1) + " "
             else:
-                ret_string += f"{i+1}: submit your score".ljust(25, " ")
+                ret_string += f"{i+1}: submit your score".ljust(26, " ")
         ret_string += "\n"
 
     return ret_string + "```"
