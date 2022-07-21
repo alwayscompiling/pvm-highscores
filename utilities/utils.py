@@ -36,15 +36,11 @@ def format_highscore_message(boss_name: str):
                 username: str = score_pair[0].ljust(highscores_data["username_length"], " ")
                 score: str = str(score_pair[1])
 
-                # standardize time score format.
                 if highscores_config["categories"][key]["is_time_record"]:
-                    if score.find(":") == -1:
-                        score = "00:" + score
-                    elif len(score.split(":", maxsplit=1)[0]) < 2:
-                        score = "0" + score
-                    if score.find(".") == -1:
-                        # insert 2 spaces to make up for period and ms
-                        score = score + "  "
+                    # pad score to correct length
+                    # MM:SS.ms is 7 characters long
+                    score = score.ljust(7, " ")
+
                 line_str = f"{i+1}: {username} - "
                 ret_string += line_str + score.rjust(26 - len(line_str) - 1) + " "
             else:
@@ -91,13 +87,6 @@ async def submit_score(
     """
 
     boss_category_config = highscores_config["categories"][category]
-
-    # Splitting on pipe. My discord has multiple names on account split by pipe.
-    # cap length to data defined length.
-    user = user.split("|")[0][: highscores_data["username_length"]]
-
-    # strip leading zeros and colon from score
-    score = score.lstrip("0:")
 
     # create score tuple for either time or int
     # define sort index

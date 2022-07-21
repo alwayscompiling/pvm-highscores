@@ -54,7 +54,16 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
                         embed = submission_message.embeds[0]
                         embed.add_field(name="Error", value="Number record must only be number.")
                     else:
-                        submission_objects[message.author.id]["score"] = message.content
+                        score = message.content
+                        if is_time_record:
+                            # standardize time score format.
+                            # add colon if its not there
+                            if score.find(":") == -1:
+                                score = "00:" + score
+                            # add a 0 if there isn't 2 digits before a colon
+                            elif len(score.split(":", maxsplit=1)[0]) < 2:
+                                score = "0" + score
+                        submission_objects[message.author.id]["score"] = score
                         embed = get_submission_embed(message.author.id)
 
                     await submission_message.edit(

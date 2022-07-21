@@ -195,6 +195,7 @@ class SubmissionCreateButton(nextcord.ui.View):
 
         # a user should only have 1 submission active at once.
         # submitting with dummy message_id until message created
+        # split username on pipe.
         submission_objects[interaction.user.id] = {
             "message_id": 0,
             "submission_state": SubmissionState.CATEGORY,
