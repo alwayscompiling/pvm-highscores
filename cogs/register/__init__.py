@@ -29,7 +29,7 @@ class RegisterVerificationChannel(commands.Cog, name="Register"):
         """
         # respond to the message
         channel_id = ctx.channel.id
-        guild_data = highscores_data[ctx.guild.id]
+        guild_data = highscores_data[str(ctx.guild.id)]
 
         if registration_type == "verify":
             await ctx.send(f"Registered <#{channel_id}> as channel to post verifications in.")

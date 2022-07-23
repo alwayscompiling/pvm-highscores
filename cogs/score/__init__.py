@@ -29,7 +29,7 @@ class Score(commands.Cog, name="Score"):
         This command still works if you prefer to use it over the ui.
         ```
         """
-        guild_data = highscores_data[ctx.guild.id]
+        guild_data = highscores_data[str(ctx.guild.id)]
         verification_channel_id = guild_data["verification_channel_id"]
         channel = ctx.guild.get_channel(verification_channel_id)
 

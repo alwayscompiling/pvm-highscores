@@ -92,7 +92,7 @@ async def submit_score(
     """
 
     boss_category_config = highscores_config["categories"][category]
-    guild_data = highscores_data[interaction.guild.id]
+    guild_data = highscores_data[str(interaction.guild.id)]
 
     # create score tuple for either time or int
     # define sort index
@@ -158,5 +158,5 @@ async def submit_score(
     await send_highscore_message(channel, boss_name, guild_data)
 
     # save data
-    highscores_data[interaction.guild.id] = guild_data
+    highscores_data[str(interaction.guild.id)] = guild_data
     save_highscores_data(highscores_data)

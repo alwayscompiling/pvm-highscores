@@ -29,7 +29,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         ?post-scores
         ```
         """
-        guild_data = highscores_data[ctx.guild.id]
+        guild_data = highscores_data[str(ctx.guild.id)]
         highscore_channel_id = guild_data["highscore_channel_id"]
         print(f"Printing out highscores information in channel {highscore_channel_id}")
         channel = ctx.guild.get_channel(highscore_channel_id)

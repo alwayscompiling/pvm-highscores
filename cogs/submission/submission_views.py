@@ -149,7 +149,9 @@ class SubmitButton(nextcord.ui.Button):
         self._bot = bot
 
     async def callback(self, interaction: nextcord.Interaction):
-        verification_channel_id = highscores_data[interaction.guild.id]["verification_channel_id"]
+        verification_channel_id = highscores_data[str(interaction.guild.id)][
+            "verification_channel_id"
+        ]
         channel = interaction.guild.get_channel(verification_channel_id)
 
         error_response = "Registered Verification channel does not exist or was never registered. \
@@ -187,9 +189,9 @@ class SubmissionCreateButton(nextcord.ui.View):
         self, button: nextcord.ui.Button, interaction: nextcord.Interaction
     ):  # pylint: disable=unused-argument
         """Button for score submission."""
-        guild_data = highscores_data[interaction.guild.id]
+        guild_data = highscores_data[str(interaction.guild.id)]
 
-        boss_name = highscores_message_map[interaction.guild.id][interaction.message.id]
+        boss_name = highscores_message_map[str(interaction.guild.id)][interaction.message.id]
         channel = interaction.guild.get_channel(guild_data["submission_channel_id"])
 
         # a user should only have 1 submission active at once.
