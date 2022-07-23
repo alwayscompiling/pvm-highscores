@@ -25,9 +25,16 @@ class GuildListener(commands.Cog, name="Guild Listener"):
 
         welcome_message: str = "Hello, I keep track of Highscores for you!"
         welcome_message += "Currently only supporting RuneScape boss highscores, but will be more dynamic support in future."
-        welcome_message += "For assistance on getting started, use \?register help\."
+        welcome_message += 'For assistance on getting started, use "?register help".'
 
-        guild.system_channel.send(content=welcome_message)
+        await guild.system_channel.send(content=welcome_message)
+
+    @commands.Cog.listener()
+    async def on_guild_remove(self, guild: nextcord.Guild):
+        """Listener for Guild Remove. Removes data from highscores_data."""
+        print(f"Removing data for guild {guild.name} (id {guild.id}).")
+        highscores_data.pop(str(guild.id))
+        save_highscores_data(highscores_data)
 
 
 # This function will be called when this extension is loaded.
