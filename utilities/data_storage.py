@@ -38,7 +38,7 @@ def create_message_map(data: dict):
     message_map = {}
 
     for guild, guild_scores in data.items():
-
+        message_map[guild] = {}
         for boss, info in guild_scores["tables"].items():
             message_map[guild][info["message_id"]] = boss
 
