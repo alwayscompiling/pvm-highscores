@@ -41,7 +41,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         for boss, categories in highscores_config[  # pylint: disable=unused-variable
             "tables"
         ].items():
-            message: nextcord.Message = await send_highscore_message(channel, boss)
+            message: nextcord.Message = await send_highscore_message(channel, boss, guild_data)
             await message.edit(view=SubmissionCreateButton(self.bot))
 
         # Saving in case new message was sent.
