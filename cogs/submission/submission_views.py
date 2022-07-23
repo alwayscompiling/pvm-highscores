@@ -191,7 +191,7 @@ class SubmissionCreateButton(nextcord.ui.View):
         """Button for score submission."""
         guild_data = highscores_data[str(interaction.guild.id)]
 
-        boss_name = highscores_message_map[interaction.guild.id][interaction.message.id]
+        boss_name = highscores_message_map[str(interaction.guild.id)][interaction.message.id]
         channel = interaction.guild.get_channel(guild_data["submission_channel_id"])
 
         # a user should only have 1 submission active at once.

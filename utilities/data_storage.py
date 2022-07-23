@@ -38,6 +38,7 @@ def create_message_map(data: dict):
 
     message_map = {}
 
+    # guild id will be a string. Json object keys are strings.
     for guild, guild_scores in data.items():
         message_map[guild] = {}
         for boss, info in guild_scores["tables"].items():
