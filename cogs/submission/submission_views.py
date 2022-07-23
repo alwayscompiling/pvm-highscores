@@ -7,7 +7,7 @@ import nextcord
 from nextcord import Embed
 from nextcord.ext import commands
 
-from utilities.data_storage import open_message_map  # pylint: disable=import-error
+from utilities.data_storage import create_message_map  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
 from highscores import submission_objects  # pylint: disable=import-error
 from .verification_view import VerificationView
@@ -186,7 +186,7 @@ class SubmissionCreateButton(nextcord.ui.View):
         self, button: nextcord.ui.Button, interaction: nextcord.Interaction
     ):  # pylint: disable=unused-argument
         """Button for score submission."""
-        highscores_message_map = open_message_map()
+        highscores_message_map = create_message_map()
         boss_name = highscores_message_map[str(interaction.message.id)]
         # embed = nextcord.Embed(title="Highscores Submission")
         # embed.add_field(name="Boss", value=boss_name, inline=False)
