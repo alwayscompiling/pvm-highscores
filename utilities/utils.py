@@ -136,7 +136,7 @@ async def submit_score(
     # enforce highscore size
     while len(scores) > highscores_config["highscore_size"]:
         scores.pop()
-    highscores_data[boss_name]["categories"][category] = scores
+    highscores_data["tables"][boss_name]["categories"][category] = scores
 
     # edit message
     highscore_channel_id = highscores_data["highscore_channel_id"]
