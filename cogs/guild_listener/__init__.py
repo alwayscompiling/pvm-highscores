@@ -24,8 +24,8 @@ class GuildListener(commands.Cog, name="Guild Listener"):
         save_highscores_data(highscores_data)
 
         welcome_message: str = "Hello, I keep track of Highscores for you!"
-        welcome_message += "Currently only supporting RuneScape boss highscores, but will be more dynamic support in future."
-        welcome_message += 'For assistance on getting started, use "?register help".'
+        welcome_message += " Currently only supporting RuneScape boss highscores, but will be more dynamic support in future."
+        welcome_message += ' For assistance on getting started, use "?register help".'
 
         await guild.system_channel.send(content=welcome_message)
 
