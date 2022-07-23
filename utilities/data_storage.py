@@ -7,6 +7,29 @@ HIGHSCORES_CONFIG_FILE = "highscores_config.json"
 HIGHSCORES_DATA_FILE = "highscores_data.json"
 
 
+def create_highscore_data_entry(guild_id: int) -> dict:
+    """
+    Creates a skeleton entry for highscores data for given guild
+
+    @param guild_id: the guild the data skeleton is for
+    @return: dict skeleton entry
+    """
+    # create the dict
+    skeleton = {"highscore_channel_id": -1, "verification_channel_id": -1, "username_length": 12}
+    config: dict = open_highscores_config()
+    for boss, categories in config["highscore_table"].items():
+        skeleton["tables"][boss] = {"message_id": 0}
+        boss_categories = {}
+        for category in categories:
+            rank_list = []
+            boss_categories[category] = rank_list
+        skeleton["tables"][boss]["categories"] = boss_categories
+
+    # return the entire skeleton as a dict under the guild id
+    # turning guild id into string because json doesn't support ints as object keys.
+    return {str(guild_id): skeleton}
+
+
 def create_message_map(data: dict):
     """
     Creates a message map from input highscores data.
@@ -35,23 +58,14 @@ def open_highscores_config():
 
 def open_highscores_data():
     """
-    Opens a highscores_data.json file if one exists, otherwise creates a skeleton of the data.
+    Opens a highscores_data.json file if one exists, otherwise returns empty dict.
     @return: dict of highscores data.
     """
     if os.path.exists(HIGHSCORES_DATA_FILE):
         with open(HIGHSCORES_DATA_FILE, encoding="utf-8", mode="r") as file:
             data = json.load(file)
     else:
-        # create the json object
-        data = {"highscore_channel_id": -1, "verification_channel_id": -1, "username_length": 12}
-        config: dict = open_highscores_config()
-        for boss, categories in config["highscore_table"].items():
-            data["tables"][boss] = {"message_id": 0}
-            boss_categories = {}
-            for category in categories:  # pylint: disable=unused-variable
-                rank_list = []
-                boss_categories[category] = rank_list
-            data["tables"][boss]["categories"] = boss_categories
+        data = {}
     return data
 
 
