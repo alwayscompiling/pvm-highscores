@@ -7,6 +7,22 @@ HIGHSCORES_CONFIG_FILE = "highscores_config.json"
 HIGHSCORES_DATA_FILE = "highscores_data.json"
 
 
+def create_message_map(data: dict):
+    """
+    Creates a message map from input highscores data.
+
+    @param data: highscores_data dict to create map from.
+    @return: dict message_map of message to boss.
+    """
+
+    message_map = {}
+
+    for boss, info in data["tables"].items():
+        message_map[info["message_id"]] = boss
+
+    return message_map
+
+
 def open_highscores_config():
     """
     Opens the highscores config file and returns.
@@ -37,22 +53,6 @@ def open_highscores_data():
                 boss_categories[category] = rank_list
             data["tables"][boss]["categories"] = boss_categories
     return data
-
-
-def create_message_map(data: dict):
-    """
-    Creates a message map from input highscores data.
-
-    @param data: highscores_data dict to create map from.
-    @return: dict message_map of message to boss.
-    """
-
-    message_map = {}
-
-    for boss, info in data["tables"].items():
-        message_map[info["message_id"]] = boss
-
-    return message_map
 
 
 def save_highscores_data(data):
