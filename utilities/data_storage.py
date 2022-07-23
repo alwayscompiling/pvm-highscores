@@ -30,12 +30,12 @@ def open_highscores_data():
         data = {"highscore_channel_id": -1, "verification_channel_id": -1, "username_length": 12}
         config: dict = open_highscores_config()
         for boss, categories in config["highscore_table"].items():
-            data[boss] = {"message_id": 0}
+            data["tables"][boss] = {"message_id": 0}
             boss_categories = {}
             for category in categories:  # pylint: disable=unused-variable
                 rank_list = []
                 boss_categories[category] = rank_list
-            data[boss]["categories"] = boss_categories
+            data["tables"][boss]["categories"] = boss_categories
     return data
 
 

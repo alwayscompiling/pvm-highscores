@@ -55,7 +55,7 @@ def get_submission_embed(userid: int) -> nextcord.Embed:
 def category_select_options(boss_name: str) -> "list[nextcord.SelectOption]":
     """Returns list of categories for a given boss."""
     options: "list[nextcord.SelectOption]" = []
-    boss_dict = highscores_data[boss_name]
+    boss_dict = highscores_data["tables"][boss_name]
     for category in boss_dict["categories"].items():
         options.append(nextcord.SelectOption(label=category[0]))
 

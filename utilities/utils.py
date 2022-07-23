@@ -16,7 +16,7 @@ def format_highscore_message(boss_name: str):
     @return the formatted string
     """
     ret_string = f"**{boss_name}**\n```"
-    boss_data = highscores_data[boss_name]
+    boss_data = highscores_data["tables"][boss_name]
 
     # Gather all categories and add to string
     for key, value in boss_data["categories"].items():
@@ -58,7 +58,7 @@ async def send_highscore_message(channel, boss_name: str) -> nextcord.Message:
     """
     highscore_string = format_highscore_message(boss_name)
 
-    message_id = highscores_data[boss_name]["message_id"]
+    message_id = highscores_data["tables"][boss_name]["message_id"]
     try:
         message: nextcord.Message = await channel.fetch_message(message_id)
         await message.edit(content=highscore_string)
@@ -66,7 +66,7 @@ async def send_highscore_message(channel, boss_name: str) -> nextcord.Message:
         # message doesn't exist.
         message: nextcord.Message = await channel.send(highscore_string)
         message_id = message.id
-        highscores_data[boss_name]["message_id"] = message_id
+        highscores_data["tables"][boss_name]["message_id"] = message_id
         # save message -> boss_name in message_map
         highscores_message_map[str(message_id)] = boss_name
 
@@ -102,7 +102,7 @@ async def submit_score(
         score_tuple = (user, int(score))
         sort_index = 1
 
-    scores: "list[tuple]" = highscores_data[boss_name]["categories"][category]
+    scores: "list[tuple]" = highscores_data["tables"][boss_name]["categories"][category]
 
     # if user is in an existing tuple, delete it.
     users_scores: "list[tuple]" = [score_tuple]

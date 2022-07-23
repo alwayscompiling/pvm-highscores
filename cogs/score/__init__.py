@@ -5,7 +5,6 @@ Bot command to submit a score
 from nextcord.ext import commands
 
 from highscores import highscores_data  # pylint: disable=import-error
-from utilities.utils import submit_score  # pylint: disable=import-error
 from .verification_view import VerificationView
 
 
