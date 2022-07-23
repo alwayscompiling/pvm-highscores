@@ -43,6 +43,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
             message: nextcord.Message = await send_highscore_message(channel, boss)
             await message.edit(view=SubmissionCreateButton(self.bot))
 
+        # Saving in case new message was sent.
         save_highscores_data(highscores_data)
 
 

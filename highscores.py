@@ -11,7 +11,7 @@ from nextcord.ext import commands
 import config
 from utilities.data_storage import open_highscores_config
 from utilities.data_storage import open_highscores_data
-from utilities.data_storage import open_message_map
+from utilities.data_storage import create_message_map
 
 logger = logging.getLogger("nextcord")
 logger.setLevel(logging.DEBUG)
@@ -22,7 +22,7 @@ logger.addHandler(handler)
 
 highscores_config = open_highscores_config()
 highscores_data = open_highscores_data()
-highscores_message_map = open_message_map()
+highscores_message_map = create_message_map(highscores_data)
 
 submission_objects: dict = {}
 

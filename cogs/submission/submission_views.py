@@ -7,9 +7,9 @@ import nextcord
 from nextcord import Embed
 from nextcord.ext import commands
 
-from utilities.data_storage import open_message_map  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
 from highscores import submission_objects  # pylint: disable=import-error
+from highscores import highscores_message_map  # pylint: disable=import-error
 from .verification_view import VerificationView
 
 
@@ -55,7 +55,7 @@ def get_submission_embed(userid: int) -> nextcord.Embed:
 def category_select_options(boss_name: str) -> "list[nextcord.SelectOption]":
     """Returns list of categories for a given boss."""
     options: "list[nextcord.SelectOption]" = []
-    boss_dict = highscores_data[boss_name]
+    boss_dict = highscores_data["tables"][boss_name]
     for category in boss_dict["categories"].items():
         options.append(nextcord.SelectOption(label=category[0]))
 
@@ -186,11 +186,7 @@ class SubmissionCreateButton(nextcord.ui.View):
         self, button: nextcord.ui.Button, interaction: nextcord.Interaction
     ):  # pylint: disable=unused-argument
         """Button for score submission."""
-        highscores_message_map = open_message_map()
-        boss_name = highscores_message_map[str(interaction.message.id)]
-        # embed = nextcord.Embed(title="Highscores Submission")
-        # embed.add_field(name="Boss", value=boss_name, inline=False)
-        # embed.add_field(name="User", value=interaction.user.display_name, inline=False)
+        boss_name = highscores_message_map[interaction.message.id]
         channel = self._bot.get_channel(highscores_data["submission_channel_id"])
 
         # a user should only have 1 submission active at once.
