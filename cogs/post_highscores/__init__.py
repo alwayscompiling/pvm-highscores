@@ -38,7 +38,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         assert channel is not None, await ctx.send(error_response)
 
         for boss, categories in highscores_config[  # pylint: disable=unused-variable
-            "highscore_table"
+            "tables"
         ].items():
             message: nextcord.Message = await send_highscore_message(channel, boss)
             await message.edit(view=SubmissionCreateButton(self.bot))
