@@ -44,10 +44,10 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
                     ]["is_time_record"]
 
                     time_regex = re.search(
-                        "([0-9]{2}:)?[0-9]{2}(\.[0-9])?",  # pylint: disable=anomalous-backslash-in-string
+                        "^([0-9]{1,2}:)?[0-9]{2}(\.[0-9])?$",  # pylint: disable=anomalous-backslash-in-string
                         message.content,
                     )
-                    int_regex = re.search("[0-9]+", message.content)
+                    int_regex = re.search("^[0-9]+$", message.content)
                     if time_regex is None and is_time_record:
                         embed = submission_message.embeds[0]
                         embed.add_field(
