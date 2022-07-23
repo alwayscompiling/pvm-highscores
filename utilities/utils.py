@@ -75,7 +75,7 @@ async def send_highscore_message(
         # save message -> boss_name in message_map
         # get guild id from channel
         # channel should come from the guild that is requesting this highscores message anyways.
-        highscores_message_map[channel.guild.id][str(message_id)] = boss_name
+        highscores_message_map[channel.guild.id][message_id] = boss_name
 
     return message
 
