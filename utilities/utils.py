@@ -49,7 +49,7 @@ def format_highscore_message(boss_name: str):
     return ret_string + "```"
 
 
-async def send_highscore_message(channel, boss_name: str) -> nextcord.Message:
+async def send_highscore_message(channel: nextcord.TextChannel, boss_name: str) -> nextcord.Message:
     """
     Function takes care of checking if a message exists for a boss, then
     creating and sending/editing the message
@@ -68,7 +68,9 @@ async def send_highscore_message(channel, boss_name: str) -> nextcord.Message:
         message_id = message.id
         highscores_data["tables"][boss_name]["message_id"] = message_id
         # save message -> boss_name in message_map
-        highscores_message_map[str(message_id)] = boss_name
+        # get guild id from channel
+        # channel should come from the guild that is requesting this highscores message anyways.
+        highscores_message_map[channel.guild.id][str(message_id)] = boss_name
 
     return message
 
@@ -143,8 +145,8 @@ async def submit_score(
     print(f"Editting message {highscore_channel_id}")
     channel = interaction.guild.get_channel(highscore_channel_id)
 
-    error_response = 'Registered Highscores channel does not exist or was never registered. \
-            Register with "?register" command.'
+    error_response = "Registered Highscores channel does not exist or was never registered."
+    error_response += 'Register with "?register" command.'
     assert channel is not None, await interaction.send(error_response, ephemeral=True)
 
     await send_highscore_message(channel, boss_name)

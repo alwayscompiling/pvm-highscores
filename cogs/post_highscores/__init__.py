@@ -31,7 +31,7 @@ class PostHighscores(commands.Cog, name="Post Highscores"):
         """
         highscore_channel_id = highscores_data["highscore_channel_id"]
         print(f"Printing out highscores information in channel {highscore_channel_id}")
-        channel = self.bot.get_channel(highscore_channel_id)
+        channel = ctx.guild.get_channel(highscore_channel_id)
 
         error_response = 'Registered Highscores channel does not exist or was never registered. \n\
                 Register with "?register" command.'
