@@ -28,7 +28,7 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
         if message.author.id in submission_objects:
             message_id = submission_objects[message.author.id]["message_id"]
             submission_message: nextcord.Message = (
-                self.bot.get_guild(guild_id)
+                await self.bot.get_guild(guild_id)
                 .get_channel(guild_data["submission_channel_id"])
                 .fetch_message(message_id)
             )
@@ -79,7 +79,7 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
                     )
                 elif state == SubmissionState.NAME and message.content:
                     submission_objects[message.author.id]["username"] = message.content[
-                        : highscores_data[guild_id_str]["username_length"]
+                        : guild_data["username_length"]
                     ]
                     embed = get_submission_embed(message.author.id)
                     await submission_message.edit(
