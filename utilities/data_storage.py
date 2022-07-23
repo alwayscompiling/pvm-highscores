@@ -16,6 +16,7 @@ def create_highscore_skeleton() -> dict:
     # create the dict
     skeleton = {"highscore_channel_id": -1, "verification_channel_id": -1, "username_length": 12}
     config: dict = open_highscores_config()
+    skeleton["tables"] = {}
     for boss, categories in config["tables"].items():
         skeleton["tables"][boss] = {"message_id": 0}
         boss_categories = {}
