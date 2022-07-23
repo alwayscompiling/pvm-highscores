@@ -9,14 +9,15 @@ from highscores import highscores_message_map  # pylint: disable=import-error
 from utilities.data_storage import save_highscores_data  # pylint: disable=import-error
 
 
-def format_highscore_message(boss_name: str):
+def format_highscore_message(boss_name: str, guild_data: dict):
     """
     returns a formatted string for a boss's highscore
     @param boss: the dictionary object for the boss
+    @param guild_data: the guild's highscore data
     @return the formatted string
     """
     ret_string = f"**{boss_name}**\n```"
-    boss_data = highscores_data["tables"][boss_name]
+    boss_data = guild_data["tables"][boss_name]
 
     # Gather all categories and add to string
     for key, value in boss_data["categories"].items():
@@ -32,7 +33,7 @@ def format_highscore_message(boss_name: str):
                 score_pair = value[i]
 
                 # pad username to max length.
-                username: str = score_pair[0].ljust(highscores_data["username_length"], " ")
+                username: str = score_pair[0].ljust(guild_data["username_length"], " ")
                 score: str = str(score_pair[1])
 
                 if highscores_config["categories"][key]["is_time_record"]:
@@ -49,16 +50,20 @@ def format_highscore_message(boss_name: str):
     return ret_string + "```"
 
 
-async def send_highscore_message(channel: nextcord.TextChannel, boss_name: str) -> nextcord.Message:
+async def send_highscore_message(
+    channel: nextcord.TextChannel, boss_name: str, guild_data: dict
+) -> nextcord.Message:
     """
     Function takes care of checking if a message exists for a boss, then
     creating and sending/editing the message
     @param channel: the channel to send the message in/search for message id
     @param boss: the boss to send the message about
+    @param guild_data: the guild's highscore data
+    @return: The nextcord message
     """
-    highscore_string = format_highscore_message(boss_name)
+    highscore_string = format_highscore_message(boss_name, guild_data)
 
-    message_id = highscores_data["tables"][boss_name]["message_id"]
+    message_id = guild_data["tables"][boss_name]["message_id"]
     try:
         message: nextcord.Message = await channel.fetch_message(message_id)
         await message.edit(content=highscore_string)
@@ -66,7 +71,7 @@ async def send_highscore_message(channel: nextcord.TextChannel, boss_name: str) 
         # message doesn't exist.
         message: nextcord.Message = await channel.send(highscore_string)
         message_id = message.id
-        highscores_data["tables"][boss_name]["message_id"] = message_id
+        guild_data["tables"][boss_name]["message_id"] = message_id
         # save message -> boss_name in message_map
         # get guild id from channel
         # channel should come from the guild that is requesting this highscores message anyways.
@@ -87,6 +92,7 @@ async def submit_score(
     """
 
     boss_category_config = highscores_config["categories"][category]
+    guild_data = highscores_data[interaction.guild.id]
 
     # create score tuple for either time or int
     # define sort index
@@ -104,7 +110,7 @@ async def submit_score(
         score_tuple = (user, int(score))
         sort_index = 1
 
-    scores: "list[tuple]" = highscores_data["tables"][boss_name]["categories"][category]
+    scores: "list[tuple]" = guild_data["tables"][boss_name]["categories"][category]
 
     # if user is in an existing tuple, delete it.
     users_scores: "list[tuple]" = [score_tuple]
@@ -138,10 +144,10 @@ async def submit_score(
     # enforce highscore size
     while len(scores) > highscores_config["highscore_size"]:
         scores.pop()
-    highscores_data["tables"][boss_name]["categories"][category] = scores
+    guild_data["tables"][boss_name]["categories"][category] = scores
 
     # edit message
-    highscore_channel_id = highscores_data["highscore_channel_id"]
+    highscore_channel_id = guild_data["highscore_channel_id"]
     print(f"Editting message {highscore_channel_id}")
     channel = interaction.guild.get_channel(highscore_channel_id)
 
@@ -149,7 +155,8 @@ async def submit_score(
     error_response += 'Register with "?register" command.'
     assert channel is not None, await interaction.send(error_response, ephemeral=True)
 
-    await send_highscore_message(channel, boss_name)
+    await send_highscore_message(channel, boss_name, guild_data)
 
     # save data
+    highscores_data[interaction.guild.id] = guild_data
     save_highscores_data(highscores_data)

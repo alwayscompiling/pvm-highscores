@@ -7,9 +7,10 @@ import nextcord
 from nextcord import Embed
 from nextcord.ext import commands
 
+from highscores import highscores_config  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
-from highscores import submission_objects  # pylint: disable=import-error
 from highscores import highscores_message_map  # pylint: disable=import-error
+from highscores import submission_objects  # pylint: disable=import-error
 from .verification_view import VerificationView
 
 
@@ -55,9 +56,9 @@ def get_submission_embed(userid: int) -> nextcord.Embed:
 def category_select_options(boss_name: str) -> "list[nextcord.SelectOption]":
     """Returns list of categories for a given boss."""
     options: "list[nextcord.SelectOption]" = []
-    boss_dict = highscores_data["tables"][boss_name]
-    for category in boss_dict["categories"].items():
-        options.append(nextcord.SelectOption(label=category[0]))
+    category_list = highscores_config["tables"][boss_name]
+    for category in category_list:
+        options.append(nextcord.SelectOption(label=category))
 
     return options
 
@@ -148,8 +149,8 @@ class SubmitButton(nextcord.ui.Button):
         self._bot = bot
 
     async def callback(self, interaction: nextcord.Interaction):
-        verification_channel_id = highscores_data["verification_channel_id"]
-        channel = self._bot.get_channel(verification_channel_id)
+        verification_channel_id = highscores_data[interaction.guild.id]["verification_channel_id"]
+        channel = interaction.guild.get_channel(verification_channel_id)
 
         error_response = "Registered Verification channel does not exist or was never registered. \
                 Contact server admins."
@@ -186,8 +187,10 @@ class SubmissionCreateButton(nextcord.ui.View):
         self, button: nextcord.ui.Button, interaction: nextcord.Interaction
     ):  # pylint: disable=unused-argument
         """Button for score submission."""
+        guild_data = highscores_data[interaction.guild.id]
+
         boss_name = highscores_message_map[interaction.guild.id][interaction.message.id]
-        channel = self._bot.get_channel(highscores_data["submission_channel_id"])
+        channel = interaction.guild.get_channel(guild_data["submission_channel_id"])
 
         # a user should only have 1 submission active at once.
         # submitting with dummy message_id until message created
@@ -199,7 +202,7 @@ class SubmissionCreateButton(nextcord.ui.View):
             "score": "",
             "category": "",
             "username": interaction.user.display_name.split("|")[0][
-                : highscores_data["username_length"]
+                : guild_data["username_length"]
             ],
         }
 

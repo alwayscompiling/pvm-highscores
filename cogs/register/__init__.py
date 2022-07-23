@@ -29,16 +29,17 @@ class RegisterVerificationChannel(commands.Cog, name="Register"):
         """
         # respond to the message
         channel_id = ctx.channel.id
+        guild_data = highscores_data[ctx.guild.id]
 
         if registration_type == "verify":
             await ctx.send(f"Registered <#{channel_id}> as channel to post verifications in.")
-            highscores_data["verification_channel_id"] = channel_id
+            guild_data["verification_channel_id"] = channel_id
         elif registration_type == "highscore":
             await ctx.send(f"Registered <#{channel_id}> as channel to post highscores in.")
-            highscores_data["highscore_channel_id"] = channel_id
+            guild_data["highscore_channel_id"] = channel_id
         elif registration_type == "submission":
             await ctx.send(f"Registered <#{channel_id}> as channel to post submissions in.")
-            highscores_data["submission_channel_id"] = channel_id
+            guild_data["submission_channel_id"] = channel_id
         else:
             embed = Embed(
                 title="Register command help", description="How to use the register command."

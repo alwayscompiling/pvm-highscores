@@ -29,11 +29,12 @@ class Score(commands.Cog, name="Score"):
         This command still works if you prefer to use it over the ui.
         ```
         """
-        verification_channel_id = highscores_data["verification_channel_id"]
-        channel = self.bot.get_channel(verification_channel_id)
+        guild_data = highscores_data[ctx.guild.id]
+        verification_channel_id = guild_data["verification_channel_id"]
+        channel = ctx.guild.get_channel(verification_channel_id)
 
-        error_response = "Registered Verification channel does not exist or was never registered. \
-                Contact server admins."
+        error_response = "Registered Verification channel does not exist or was never registered."
+        error_response += "Contact server admins."
         assert channel is not None, await ctx.send(error_response)
 
         verification_string = f"{ctx.author.display_name}:{boss_name}:{category}:{score}"

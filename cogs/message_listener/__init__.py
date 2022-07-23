@@ -23,14 +23,18 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
     @commands.Cog.listener()
     async def on_message(self, message: nextcord.Message):
         """Listener for message creation. Adds score and attachments to submission."""
+        guild_id = message.guild.id
+        guild_data = highscores_data[str(guild_id)]
         if message.author.id in submission_objects:
             message_id = submission_objects[message.author.id]["message_id"]
-            submission_message: nextcord.Message = await self.bot.get_channel(
-                highscores_data["submission_channel_id"]
-            ).fetch_message(message_id)
+            submission_message: nextcord.Message = (
+                self.bot.get_guild(guild_id)
+                .get_channel(guild_data["submission_channel_id"])
+                .fetch_message(message_id)
+            )
 
             # need check if correct user and correct channel
-            if message.channel.id == highscores_data["submission_channel_id"]:
+            if message.channel.id == guild_data["submission_channel_id"]:
                 state = submission_objects[message.author.id]["submission_state"]
                 if state == SubmissionState.SCORE and message.content:
 
@@ -75,7 +79,7 @@ class SubmissionListener(commands.Cog, name="Message Listener"):
                     )
                 elif state == SubmissionState.NAME and message.content:
                     submission_objects[message.author.id]["username"] = message.content[
-                        : highscores_data["username_length"]
+                        : highscores_data[guild_id_str]["username_length"]
                     ]
                     embed = get_submission_embed(message.author.id)
                     await submission_message.edit(
