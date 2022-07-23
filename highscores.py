@@ -35,7 +35,6 @@ def main():
 
     # Required in order to read messages (eg. prefix commands)
     intents.message_content = True  # pylint: disable=assigning-non-slot
-    intents.messages = True  # pylint: disable=assigning-non-slot
 
     # To enable the guilds priveleged intent:
     # intents.guilds = True
