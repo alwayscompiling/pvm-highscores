@@ -7,11 +7,10 @@ HIGHSCORES_CONFIG_FILE = "highscores_config.json"
 HIGHSCORES_DATA_FILE = "highscores_data.json"
 
 
-def create_highscore_data_entry(guild_id: int) -> dict:
+def create_highscore_skeleton() -> dict:
     """
-    Creates a skeleton entry for highscores data for given guild
+    Creates a skeleton entry for new highscores data
 
-    @param guild_id: the guild the data skeleton is for
     @return: dict skeleton entry
     """
     # create the dict
@@ -25,9 +24,7 @@ def create_highscore_data_entry(guild_id: int) -> dict:
             boss_categories[category] = rank_list
         skeleton["tables"][boss]["categories"] = boss_categories
 
-    # return the entire skeleton as a dict under the guild id
-    # turning guild id into string because json doesn't support ints as object keys.
-    return {str(guild_id): skeleton}
+    return skeleton
 
 
 def create_message_map(data: dict):
@@ -69,7 +66,7 @@ def open_highscores_data():
     return data
 
 
-def save_highscores_data(data):
+def save_highscores_data(data: dict):
     """
     Saves the highscores data dict into a json file.
     @param data: dict of highscores data.
