@@ -7,7 +7,6 @@ from highscores import highscores_config  # pylint: disable=import-error
 from highscores import highscores_data  # pylint: disable=import-error
 from highscores import highscores_message_map  # pylint: disable=import-error
 from utilities.data_storage import save_highscores_data  # pylint: disable=import-error
-from utilities.data_storage import save_message_map  # pylint: disable=import-error
 
 
 def format_highscore_message(boss_name: str):
@@ -70,7 +69,6 @@ async def send_highscore_message(channel, boss_name: str) -> nextcord.Message:
         highscores_data[boss_name]["message_id"] = message_id
         # save message -> boss_name in message_map
         highscores_message_map[str(message_id)] = boss_name
-        save_message_map(highscores_message_map)
 
     return message
 

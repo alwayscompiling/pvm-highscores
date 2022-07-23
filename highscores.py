@@ -22,7 +22,7 @@ logger.addHandler(handler)
 
 highscores_config = open_highscores_config()
 highscores_data = open_highscores_data()
-highscores_message_map = create_message_map()
+highscores_message_map = create_message_map(highscores_data)
 
 submission_objects: dict = {}
 
